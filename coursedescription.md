@@ -95,7 +95,7 @@ TAs:
 <!-- All lectures will are in HCØ Aud 3. -->
 
 ## Exercise Classes (expected)
-Exercises will mainly be with physical help, but we expect also to schedule an option for online help.
+Exercises will mainly be with physical help.
 
  * Mondays 15:30-17:00
    * These classes are dedicated to exercises and not making assignments.
