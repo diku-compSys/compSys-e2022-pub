@@ -7,9 +7,9 @@
 |      | 07 Sep | Basic | Troels   | Assembly code and machine model                                               | COD 2.1-2.4,2.6-2.7, JG 4 |
 | 37   | 12 Sep | Basic | Troels   | Functions and text                                                            | COD 2.8-2.9, JG 5-7 |
 |      | 14 Sep | Basic | Troels   | Computer arithmetic                                                           | COD 3.1-3.3, 3.5 |
-|      |        |       |          | Hand-in A0 -- ???                                                             |          |
 | 38   | 19 Sep | Basic | Troels   | C Programming - pointers and memory                                           | JG 8-9, 11 |
 |      | 21 Sep | Basic | Troels   | C Programming - dynamic memory                                                | JG 12-13 |
+|      |        |       |          | Hand-in A0 -- RISC-V programming                                              | |
 | 39   | 26 Sep | Basic | Troels   | Memory hierarchy and caching                                                  | COD 5.1-5.4 |
 |      | 28 Sep | OS    | Troels   | Intro to Operating systems - kernel, processes, system calls                  | ???                                                                                                                                                     |
 | 40   | 03 Oct | OS    | Troels   | Virtual memory - hardware perspective                                         | COD 5.7-5.8                                                                                                                                                        |
