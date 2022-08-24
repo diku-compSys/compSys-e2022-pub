@@ -50,10 +50,20 @@ lw   x30, 0(x31)
 
 * Exercise 2.6
 
+* Exercise 2.24
+
+* Exercise 2.25
+
+(In the book, the outermost loop does not matter.)
+
+### More
+
 If you finish early, you can continue with more of the chapter 2
 exercises - many are surprisingly relevant, and close to what you can
 expect at the exam.  Skip the ones about instruction encoding
-(e.g. 2.12); this will be covered later in the course.
+(e.g. 2.12); this will be covered later in the course.  Most of the
+exercises most 2.28 involve material not covered until the next
+lecture.
 
 ### Errors in exercises
 
@@ -172,5 +182,113 @@ symbol*).
 * ...
 
 2 + 1 + 3840 + 57344 + ... = 2882400018
+
+</details>
+
+#### 2.24
+
+##### 2.24.1
+
+<details>
+<summary>Open this to see the answer</summary>
+
+20
+
+You can experimentally test this by adding the following instructions
+before the loop so you can run it:
+
+```
+addi    x6, x0, 10
+addi    x5, x0, 0
+```
+
+</details>
+
+##### 2.24.2
+
+<details>
+<summary>Open this to see the answer</summary>
+
+```C
+while (i != 0) {
+  i = i - 1;
+  acc = acc + 2;
+}
+```
+
+</details>
+
+##### 2.24.3
+
+<details>
+<summary>Open this to see the answer</summary>
+
+Each iteration where the loop is taken requires four instructions: one
+`beq`, two `addi`, and one `jal`.  We then perform a final `beq` when
+`x6` is zero.  Thus, `N*4+1` instructions are executed.
+
+</details>
+
+##### 2.24.4
+
+<details>
+<summary>Open this to see the answer</summary>
+
+```C
+while (i >= 0) {
+  i = i - 1;
+  acc = acc + 2;
+}
+```
+
+</details>
+
+#### 2.25
+
+<details>
+<summary>Open this to see the answer</summary>
+
+```
+LOOP0:  beq x7, x5, DONE0
+        addi x29, x0, 0
+LOOP1:  beq x29, x6, DONE1
+        slli x30, x29, 2
+        slli x30, x30, 2
+        add x30, x10, x30
+        add x31, x7, x29,
+        sw x31 0(x30)
+        addi x29, x29, 1
+        jal x0, LOOP1
+DONE1:
+        addi x7, x7, 1
+        jal x0, LOOP0
+DONE0:
+```
+
+We can run it in RARS by adding more code before the outer loop:
+
+```
+        addi x5, x0, 4
+        addi x6, x0, 3
+        addi x7, x0, 0
+        addi sp, sp, -48
+        addi x10, sp, 0
+```
+
+This initialises the registers (`a=4`, `b=3`).  The array `D` is
+stored on the stack, by first subtracting 48 from `sp`, and then using
+`sp` as the base address of the array (by copying it to `x10`).  If we
+put the above in a file `225.s`, we can run it with RARS on the
+command line as follows:
+
+    rars 225.s
+
+(Or maybe `java -jar rars.jar 225.s` depending on how you install it.)
+
+This will not be terribly interesting as it will show no output.  We
+can also ask RARS to print the contents of a specific range of memory
+after execution:
+
+    rars 0x7fffefcc-0x7fffeffc 225.s
 
 </details>
