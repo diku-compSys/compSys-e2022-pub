@@ -205,7 +205,7 @@ There are 7-8 assignment in total during the course with deadline roughly every 
 
 | Topic                             | Expected deadline   |
 | --------------------------------- | ------------------- |
-| A0: Data representation           | 25 Sep @ 16:00      |
+| A0: Quicksort in RISC-V assembly  | 25 Sep @ 16:00      |
 | A1: Dynamic memory and caching    | 09 Oct @ 16:00      |
 | A2: Concurrency                   | 30 Oct @ 16:00      |
 | A3: Client network distribution   | 20 Nov @ 16:00      |
