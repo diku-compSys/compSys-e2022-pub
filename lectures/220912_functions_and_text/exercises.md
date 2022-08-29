@@ -9,6 +9,10 @@ programs in RISC-V assembly.
 
 It is up to you to decide how to test them.
 
+You should use [RARS](https://github.com/TheThirdOne/rars) to develop,
+test, and run these programs.  [See this guide on using
+RARS](../../rars.md).
+
 ### Fibonacci function
 
 Implement the standard recursive definition of the Fibonacci function:

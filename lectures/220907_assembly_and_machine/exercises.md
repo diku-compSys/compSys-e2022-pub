@@ -9,9 +9,12 @@ You can use one of the following RISC-V interpreters:
 
 * [RARS](https://github.com/TheThirdOne/rars), which has more features
 and supports a bigger memory, but has a more complicated interface.
+[See this guide on using RARS](../../rars.md).
 
-You should use only the instructions supported by the web-based
-interpreter: ADD, ADDI, SUB, AND,ANDI, OR, ORI, XOR, XORI, SLT, SLTI,
+You will need to use RARS for the first mandatory assignment, but
+today's exercises can be solved with the web-based interpreter.  Note
+that the web-based interpreter supports only the following
+instructions: ADD, ADDI, SUB, AND,ANDI, OR, ORI, XOR, XORI, SLT, SLTI,
 SLTU, SLTIU, SRA, SRAI, SRL, SRLI, SLL, SLLI, LW, SW, LB, SB, LUI,
 AUIPC, JAL, JALR, BEQ, BNE, BLT, BGE, BLTU, BGEU.
 
