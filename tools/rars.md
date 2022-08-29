@@ -32,12 +32,14 @@ If you run Debian, do
 
     $ sudp apt-get install default-jre
 
-If you run Arch btw, do.
+If you run Arch btw, do
 
     $ sudo pacman -S jre-openjdk
 
 If you run [NixOS](https://nixos.org/) (the superior choice), just use
-the `rars` derivation from Nixpkgs and don't worry about Java.
+the `rars` derivation from Nixpkgs and don't worry about Java.  You
+also don't need the `java -jar` business at all; just run `rars` on
+the command line.
 
 ### Installing RARS
 
