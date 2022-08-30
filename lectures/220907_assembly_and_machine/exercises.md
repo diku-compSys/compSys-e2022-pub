@@ -57,15 +57,13 @@ lw   x30, 0(x31)
 
 * Exercise 2.25
 
-(In the book, the outermost loop does not matter.)
-
 ### More
 
 If you finish early, you can continue with more of the chapter 2
 exercises - many are surprisingly relevant, and close to what you can
 expect at the exam.  Skip the ones about instruction encoding
 (e.g. 2.12); this will be covered later in the course.  Most of the
-exercises most 2.28 involve material not covered until the next
+exercises past 2.28 involve material not covered until the next
 lecture.
 
 ### Errors in exercises
