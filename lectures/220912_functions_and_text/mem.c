@@ -18,3 +18,20 @@ const unsigned char* memfind(const unsigned char *haystack, int haystacklen,
   }
   return NULL;
 }
+
+int stalinsort(int *array, int n) {
+  if (n == 0) {
+    return 0;
+  }
+
+  int prev = array[0];
+  int i = 1;
+  for (int j = 1; j < n; j++) {
+    if (prev <= array[j]) {
+      prev = array[j];
+      array[i] = prev;
+      i++;
+    }
+  }
+  return i;
+}

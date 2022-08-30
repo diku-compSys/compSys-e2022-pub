@@ -9,7 +9,7 @@ programs in RISC-V assembly.
 
 It is up to you to decide how to test them.
 
-You should use [RARS](https://github.com/TheThirdOne/rars) to develop,
+You must use [RARS](https://github.com/TheThirdOne/rars) to develop,
 test, and run these programs.  [See this guide on using
 RARS](../../rars.md).
 
@@ -68,6 +68,37 @@ array `haystack` (of length `haystacklen`).  If it can be found, it
 returns the starting address of the match.  Otherwise it returns NULL
 (`0`).
 
-Write this function in RISC-V assembly.  Accept parmaeters in `a0-a3`
+Write this function in RISC-V assembly.  Accept parameters in `a0-a3`
 and return the result in `a0`.  Use your definition of of `memeq` from
 the previous exercise as a helper function.
+
+### Stalin sort
+
+Stalin Sort is a particularly brutal *O(n)* sorting algorithm where
+every element that is not in sorted order is simply removed.  We can
+implement it in C as such:
+
+```C
+int stalinsort(int *array, int n) {
+  if (n == 0) {
+    return 0;
+  }
+
+  int prev = array[0];
+  int i = 1;
+  for (int j = 1; j < n; j++) {
+    if (prev <= array[j]) {
+      prev = array[j];
+      array[i] = prev;
+      i++;
+    }
+  }
+  return i;
+}
+```
+
+We can't change the size of the array, so instead we move the elements
+and return the new size.
+
+Write this function in RISC-V assembly.  Accept parameters in `a0-a1`
+and return the result in `a0`.
