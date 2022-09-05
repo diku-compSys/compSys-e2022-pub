@@ -9,7 +9,7 @@ You can use one of the following RISC-V interpreters:
 
 * [RARS](https://github.com/TheThirdOne/rars), which has more features
 and supports a bigger memory, but has a more complicated interface.
-[See this guide on using RARS](../../rars.md).
+[See this guide on using RARS](../../tools/rars.md).
 
 You will need to use RARS for the first mandatory assignment, but
 today's exercises can be solved with the web-based interpreter.  Note
