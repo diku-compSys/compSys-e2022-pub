@@ -2,4 +2,4 @@
 
 For details about the course see:
   * [Course Description](coursedescription.md)
-  * [Lecture Plan](lectureplan.md) - Coming soon
+  * [Lecture Plan](lectureplan.md) - Right here, right now
