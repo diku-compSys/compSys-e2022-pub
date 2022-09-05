@@ -78,6 +78,8 @@ Modify the `roll` program developed at lecture to support `dN` as
 alternative notation for `1dN`.  Hint: if one `sscanf()` fails, try
 another.
 
+* `dN` is diceNumber. d6 means a six-sided dice and d12 means a 12-sided dice. 
+* `1dN` is 1 die with N-sides. 
 ## Guessing game
 
 Write a C program that on startup generates a random number with
