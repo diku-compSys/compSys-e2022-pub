@@ -1,4 +1,5 @@
 # Exercises
+## Compile a C-program
 
 These exercises are intended to give you a first quick feeling of
 C. Use the exercise classes to get help.  This is not part of the
@@ -34,6 +35,13 @@ $ make mynameis
 There are ways to automate parts of this, but we recommend being
 explicit until you get a firm grasp on what `make` does.
 
+## Run a C-program
+To run the *compiled* program write: 
+```
+$ ./mynameis
+```
+
+# Write C-programs
 In the following, we colloquially use "print" as slang for writing to
 standard output.
 

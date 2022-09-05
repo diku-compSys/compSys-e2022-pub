@@ -30,7 +30,7 @@ If you have [Homebrew](https://brew.sh/), run:
 
 If you run Debian, do
 
-    $ sudp apt-get install default-jre
+    $ sudo apt-get install default-jre
 
 If you run Arch btw, do
 
