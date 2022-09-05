@@ -92,7 +92,7 @@ TAs:
  * Mondays at 13:15-15:00
  * Wednesdays at 10:15-12:00
 
-<!-- All lectures will are in HCØ Aud 3. -->
+All lectures are held in Lundbeck Auditoriet at the Biocenter.
 
 ## Exercise Classes (expected)
 Exercises will mainly be with physical help.
@@ -109,55 +109,40 @@ Exercises will mainly be with physical help.
 
 
 ### Exercise classes
+Held Monday 15-17 and Wednesday 13-15.
 
-Coming soon.
+#### Block 1
 
-<!-- #### Block 1
+ * Class 1: Iben
+   * Monday: Biocenter, Lundbeck Auditoriet
+   * Wednesday: HCØ A105
+ * Class 2: Johan
+   * Monday: Biocenter, Lundbeck Auditoriet
+   * Wednesday: HCØ 106
+ * Class 3: Asbjørn
+   * Monday: HCØ Aud 03
+   * Wednesday: HCØ C103
+ * Class 4: Christian
+   * Monday: NEXS AB Teori 2
+   * Wednesday: HCØ A112
+ * Class 5: Julian
+   * Monday: NEXS Auditorium Syd
+   * Wednesday: NEXS Auditorium Syd
+ * Class 6: Kjartan
+   * Monday: NEXS Auditorium Nord
+   * Wednesday: NEXS Auditorium Nord
 
- * Class 1: Henriette
-   * Monday: NBB 01.1.H.142
-   * Wednesday: DIKU 1-0-04
- * Class 2: Jens
-   * Monday: NBB 01.1.I.156
-   * Wednesday: DIKU 1-0-10
- * Class 3: Jonas
-   * Monday: NBB 01.2.H.142
-   * Wednesday: DIKU 1-0-22
- * Class 4: Jóhann
-   * Monday: NBB 01.2.I.158
-   * Wednesday: DIKU 1-0-26
- * Class 5: Lars
-   * Monday: NBB 01.3.H.142
-   * Wednesday: DIKU 1-0-30
- * Class 6: Joachim
-   * Monday: NBB 01.3.I.164
-   * Wednesday: DIKU 1-0-37
 
- * Class 7: Magnus
+ * Class Blok B: Jóhann
+   * Tuesday 13-15: DIKU 1-0-37 
+   * Friday 10-12: Biocenter 2-0-07/09  
+
+<!--  * Class 7: Magnus
    * Online 
-
-#### Block 2
-
- * Class 1: Henriette
-   * Monday: NBB 01.1.H.142
-   * Wednesday: DIKU 1-0-04
- * Class 2: Jens
-   * Monday: NBB 01.1.I.156
-   * Wednesday: DIKU 1-0-10
- * Class 3: Jonas
-   * Monday: NBB 01.2.H.142
-   * Wednesday: DIKU 1-0-22
- * Class 4: Jóhann
-   * Monday: NBB 01.2.I.158
-   * Wednesday: DIKU 1-0-26
- * Class 5: Lars
-   * Monday: NBB 01.3.H.142
-   * Wednesday: DIKU 1-0-30
- * Class 6: Joachim (CLOSED)
- * Class 7: Magnus
-   * Online 
-
  -->
+<!-- #### Block 2 -->
+
+
 ### Room details
 Map of Nørre Campus:
 https://nexs.ku.dk/kontakt/findvej/kort_norre-campus/
@@ -165,7 +150,7 @@ https://nexs.ku.dk/kontakt/findvej/kort_norre-campus/
  * Biocenter, Ole Maaløes Vej 5, https://www.biocenter.ku.dk/kort/
  * DIKU, No further explanation needed
  * NBB, Niels Bohr Building, Jagtvej 155 (other side of Jagtvej)
- * HCØ, Aud 7 is 1st floor in Vandrehallen
+ * HCØ C103 is first floor in B building
 
 
 ## Cafées
