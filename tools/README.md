@@ -12,7 +12,9 @@ Most of you should not have a problem with running needed software on your local
   * [Windows tools](windows.md)
 
 ## RARS
-You will need to code som RISC-V assembler. [Read the following for details](rars.md).
+You will need to code som RISC-V assembler. Before going to the RARS tool page, read above Toolchain page for your OS.
+
+[Details for RARS tool](rars.md).
 
 <!-- ## Virtualbox
 However, there might can be problems on the specific systems, in which case we will generally point you to a virtual machine. 
