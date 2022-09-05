@@ -97,7 +97,7 @@ All lectures are held in Lundbeck Auditoriet at the Biocenter.
 ## Exercise Classes (expected)
 Exercises will mainly be with physical help.
 
- * Mondays 15:30-17:00
+ * Mondays 15:15-17:00
    * These classes are dedicated to exercises and not making assignments.
  * Wednesdays 13:15-15:00
    * These classes are dedicated to exercises and not making assignments.
