@@ -137,9 +137,6 @@ Held Monday 15-17 and Wednesday 13-15.
    * Tuesday 13-15: DIKU 1-0-37 
    * Friday 10-12: Biocenter 2-0-07/09  
 
-<!--  * Class 7: Magnus
-   * Online 
- -->
 <!-- #### Block 2 -->
 
 
@@ -151,6 +148,7 @@ https://nexs.ku.dk/kontakt/findvej/kort_norre-campus/
  * DIKU, No further explanation needed
  * NBB, Niels Bohr Building, Jagtvej 155 (other side of Jagtvej)
  * HCØ C103 is first floor in B building
+ * NEXS Aud Syd + Nord is at Nørre Alle 51 (almost at the Royal Library)
 
 
 ## Cafées
@@ -160,6 +158,18 @@ https://nexs.ku.dk/kontakt/findvej/kort_norre-campus/
    * TA organised café classes for help with assignments and exercises.
 
 ### Rooms
+
+Wednesday: 
+  * NBB 01.3.I.080
+  * NBB 01.3.I.164
+  * NBB 01.3.H.142 -- Only in weeks with assignment deadlines
+
+Friday: 
+  * NBB 01.3.I.080
+  * NBB 01.3.I.164
+  * NBB 01.3.H.142 -- Only in weeks with assignment deadlines
+
+
 
 <!-- #### Block 1
 
