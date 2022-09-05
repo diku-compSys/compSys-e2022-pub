@@ -119,16 +119,16 @@ Held Monday 15-17 and Wednesday 13-15.
  * Class 2: Johan
    * Monday: Biocenter, Lundbeck Auditoriet
    * Wednesday: HCØ 106
- * Class 3: Asbjørn
+ * Class 3: Julian
    * Monday: HCØ Aud 03
    * Wednesday: HCØ C103
- * Class 4: Christian
-   * Monday: NEXS AB Teori 2
+ * Class 4: Kjartan
+   * Monday: HCØ Aud 03
    * Wednesday: HCØ A112
- * Class 5: Julian
+ * Class 5: Asbjørn
    * Monday: NEXS Auditorium Syd
    * Wednesday: NEXS Auditorium Syd
- * Class 6: Kjartan
+ * Class 6: Christian
    * Monday: NEXS Auditorium Nord
    * Wednesday: NEXS Auditorium Nord
 
