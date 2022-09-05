@@ -59,7 +59,7 @@ of the following.
 
   * otherwise it prints the given string.
 
-Reminder: Consider how strings are formatted in C.
+Hint: strings are arrays in C.
 
 Note: reuse your argument validation from before. You can just as well
 learn it from the beginning. _Always sanitise your input._
