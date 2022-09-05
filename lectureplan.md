@@ -54,4 +54,6 @@
  - COD: Computer Organization and Design, RISC-V Edition: The Hardware Software Interface, David A. Hennessy and John L. Patterson, 2nd edition, Morgan Kaufmann, ISBN: 978-0128203316
  - KR: James F. Kurose, Keith W. Ross: Computer Networking: A Top-Down Approach International Edition, 7th and global edition
  - JG: Modern C, Jens Gustedt, Oct. 10, 2019, https://hal.inria.fr/hal-02383654/file/ModernC.pdf
+ - OSTEP: Operating Systems: Three Easy Pieces, Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau
+
 
