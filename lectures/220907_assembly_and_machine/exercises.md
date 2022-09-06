@@ -46,7 +46,7 @@ lw    x5, 0(x30)   // f = A[f]
 addi x12, x30, 4
 lw   x30, 0(x12)
 add  x30, x30, x5
-lw   x30, 0(x31)
+sw   x30, 0(x31)
 ```
 
 * Exercise 2.5
@@ -134,7 +134,7 @@ sw   x5, 32(x11)   // Mem[B+32] = f
 
 
 ```
-A[A[f+1]]
+B[g] = A[f+1] + A[f]
 ```
 
 </details>
