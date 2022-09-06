@@ -37,11 +37,11 @@ book with errors this elementary?  I too am wondering.
 * Exercise 2.4, but modified such that the code to translate looks like this:
 
 ```
-sll  x30, x5,  2   // x30 = f * 4
-add  x30, x10, x30 // x30 = &A[f]
-slli x31, x6,  2   // x31 = g * 4
-add  x31, x11, x31 // x31 = &B[g]
-lw    x5, 0(x30)   // f = A[f]
+sll  x30, x5,  2   # x30 = f * 4
+add  x30, x10, x30 # x30 = &A[f]
+slli x31, x6,  2   # x31 = g * 4
+add  x31, x11, x31 # x31 = &B[g]
+lw    x5, 0(x30)   # f = A[f]
 
 addi x12, x30, 4
 lw   x30, 0(x12)
@@ -108,21 +108,21 @@ f = g + h + i
 Assuming `A` and `B` are byte arrays:
 
 ```
-sub  x5, x28, x29  // f = i - j
-add  x5, x5, x10   // f = f + A
-lw   x5, 0(x5)     // f = Mem[f]
-sw   x5, 8(x11)    // Mem[B+8] = f
+sub  x5, x28, x29  # f = i - j
+add  x5, x5, x10   # f = f + A
+lw   x5, 0(x5)     # f = Mem[f]
+sw   x5, 8(x11)    # Mem[B+8] = f
 ```
 
 If `A` and `B` are `int` arrays, the indexes have to be multiplied by
 `sizeof int` (4) to obtain the right memory offset:
 
 ```
-sub  x5, x28, x29  // f = i - j
-slli x5, x5, 2     // f = f * 4
-add  x5, x5, x10   // f = f + A
-lw   x5, 0(x5)     // f = Mem[f]
-sw   x5, 32(x11)   // Mem[B+32] = f
+sub  x5, x28, x29  # f = i - j
+slli x5, x5, 2     # f = f * 4
+add  x5, x5, x10   # f = f + A
+lw   x5, 0(x5)     # f = Mem[f]
+sw   x5, 32(x11)   # Mem[B+32] = f
 ```
 
 </details>
