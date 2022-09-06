@@ -176,13 +176,13 @@ Multiply the value of each symbol with its *weight*, which is `16**i`
 for the *i*ith symbol counting from the right (*least significant
 symbol*).
 
-* 0x2 \* 0 = 2
-* 0x1 \* 16 = 1
+* 0x2 \* 1 = 2
+* 0x1 \* 16 = 16
 * 0xf \* 256 = 3840
 * 0xe \* 4096 = 57344
 * ...
 
-2 + 1 + 3840 + 57344 + ... = 2882400018
+2 + 16 + 3840 + 57344 + ... = 2882400018
 
 </details>
 
