@@ -118,7 +118,7 @@ Held Monday 15-17 and Wednesday 13-15.
    * Wednesday: HCØ A105
  * Class 2: Johan
    * Monday: Biocenter, Lundbeck Auditoriet
-   * Wednesday: HCØ 106
+   * Wednesday: HCØ A106
  * Class 3: Julian
    * Monday: HCØ Aud 03
    * Wednesday: HCØ C103
