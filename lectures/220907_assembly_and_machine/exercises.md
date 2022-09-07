@@ -110,8 +110,8 @@ Assuming `A` and `B` are byte arrays:
 ```
 sub  x5, x28, x29  # f = i - j
 add  x5, x5, x10   # f = f + A
-lw   x5, 0(x5)     # f = Mem[f]
-sw   x5, 8(x11)    # Mem[B+8] = f
+lb   x5, 0(x5)     # f = Mem[f]
+sb   x5, 8(x11)    # Mem[B+8] = f
 ```
 
 If `A` and `B` are `int` arrays, the indexes have to be multiplied by
