@@ -11,7 +11,7 @@ It is up to you to decide how to test them.
 
 You must use [RARS](https://github.com/TheThirdOne/rars) to develop,
 test, and run these programs.  [See this guide on using
-RARS](../../rars.md).
+RARS](../../tools/rars.md).
 
 ### Fibonacci function
 
