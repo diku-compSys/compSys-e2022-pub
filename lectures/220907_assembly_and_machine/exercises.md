@@ -37,11 +37,11 @@ book with errors this elementary?  I too am wondering.
 * Exercise 2.4, but modified such that the code to translate looks like this:
 
 ```
-sll  x30, x5,  2   # x30 = f * 4
-add  x30, x10, x30 # x30 = &A[f]
-slli x31, x6,  2   # x31 = g * 4
-add  x31, x11, x31 # x31 = &B[g]
-lw    x5, 0(x30)   # f = A[f]
+slli  x30, x5,  2   # x30 = f * 4
+add   x30, x10, x30 # x30 = &A[f]
+slli  x31, x6,  2   # x31 = g * 4
+add   x31, x11, x31 # x31 = &B[g]
+lw    x5, 0(x30)    # f = A[f]
 
 addi x12, x30, 4
 lw   x30, 0(x12)
