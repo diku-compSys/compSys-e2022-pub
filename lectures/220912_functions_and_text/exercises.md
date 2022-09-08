@@ -21,7 +21,17 @@ Implement the standard recursive definition of the Fibonacci function:
 
 *Don't* rewrite it to be an iterative loop instead.  Yes, that's more
 efficient, but it will not give you experience with function calls in
-RISC-V.
+RISC-V.  Assume that `n` is provided in `a0`, and similarly produce
+the result in `a0`.
+
+#### Hints
+
+* See the heavily commented [fact.s](fact.s) program.  Computing
+  Fibonacci numbers is very similar.  You should structure your
+  implementation the same way (although you don't need to use
+  multiplication).
+
+* You will need at least three words of stack space.
 
 ### Array equality
 
