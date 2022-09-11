@@ -35,14 +35,14 @@ fact:
         # bytes): one word for the return address 'ra', and another
         # for 'a0', as these are caller-saves registers that will be
         # overwritten in the recursive call.
-        addi sp, sp, 8
+        addi sp, sp, -8
 
         # Now we store ra and a0.  Make sure to use different offsets!
         # It is OK to read and write to the stack multiple times in
         # the procedure code.  Think of the stack as scratch space for
         # intermediate data.
-        sw ra, 0(sp)
-        sw a0, 4(sp)
+        sw ra, 4(sp)
+        sw a0, 0(sp)
 
         # Now we check whether 'n' is zero; the base case in the
         # recursion.  If so we want to return 1 immediately, without
@@ -56,7 +56,7 @@ fact:
         jal ra, fact
 
         # Restore the original value of 'n' and put it in a1.
-        lw a1, 4(sp)
+        lw a1, 0(sp)
 
         # a0 stores the result of the recursive call (that is,
         # 'fact(n-1)'), while a1 stores 'n'.  We can multiply these
@@ -79,8 +79,8 @@ fact_return:
         # procedure was entered.  I find it eases readability when all
         # stack pointer manipulation is done at the very beginning and
         # very end of the procedure.
-        lw ra, 0(sp)
-        addi sp, sp, -8
+        lw ra, 4(sp)
+        addi sp, sp, 8
 
         # Return to caller.
         jalr zero, ra, 0
