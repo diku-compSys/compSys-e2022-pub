@@ -61,7 +61,6 @@ fact:
         # a0 stores the result of the recursive call (that is,
         # 'fact(n-1)'), while a1 stores 'n'.  We can multiply these
         # and leave the product in a0 by invoking the 'mul' procedure.
-
         jal ra, mul
 
         # Now we just have to skip the code for the base case.
@@ -71,8 +70,8 @@ fact_base:
         # If this is reached, then n==0.  We load the return value 1
         # into a0.
         li a0, 1
-fact_return:
 
+fact_return:
         # Here we return from the function.  This involves loading the
         # return address from where we stored it on the stack, and
         # restoring the stack pointer to the position it had when the
