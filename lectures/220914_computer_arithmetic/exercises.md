@@ -37,7 +37,7 @@ multiplication is supposed to read `0x0C000000`)
 
 * Exp: E + Bias = -3 + 15 = 12 = (binary) 01100
 
-* Total: S Exp Frac = 0 01100 0100000000
+* Total: S Exp Frac = 1 01100 0100000000
 
 </details>
 
