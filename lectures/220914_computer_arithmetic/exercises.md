@@ -1,5 +1,7 @@
 # Exercises
 
+Helpful tool: https://evanw.github.io/float-toy/
+
 ## From COD
 
 * 3.1
@@ -17,6 +19,27 @@ multiplication is supposed to read `0x0C000000`)
 * 3.24
 
 * 3.27
+
+<details>
+<summary>Open this to see the answer</summary>
+
+* Binary fraction: -0.00101 * 2⁰
+
+* Normalised binary fraction: -1.01 * 2-³
+
+* Sign bit (S): 1
+
+* Binary significand (M): 1.01
+
+* Binary frac: 0100000000
+
+* E: -3
+
+* Exp: E + Bias = -3 + 15 = 12 = (binary) 01100
+
+* Total: S Exp Frac = 0 01100 0100000000
+
+</details>
 
 ## More number conversion
 
