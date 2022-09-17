@@ -236,9 +236,13 @@ The following exercises will to give you some experience with using GDB.
 
 Take some of the programs from last weeks exercises or perhaps even
 the assignment and play around with GDB. Recreate a bug that you had
-in your program and try finding it with GDB.  Test most of the
+in your program and try finding it with GDB. 
+
+For a quick start guide to GDB, you can check out [Geeks for geeks guide on GBD](https://www.geeksforgeeks.org/gdb-step-by-step-introduction/). 
+
+We recommend you test most of the
 commands on the [GDB QUICK REFERENCE
-sheet](https://sourceware.org/gdb/current/onlinedocs/refcard.pdf.gz)
+sheet](https://sourceware.org/gdb/onlinedocs/refcard.pdf)
 (which can also be found in today's exercise folder).
 
 ## Debug some programs
