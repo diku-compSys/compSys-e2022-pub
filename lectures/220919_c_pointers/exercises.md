@@ -171,7 +171,7 @@ A call `read_ascii_int(f, &x)` reads an ASCII (text) integer from the
 given file, and stores the final integer in `x`.  If the read
 succeeds, the function must return 0, and otherwise 1.  Each integer
 in the file must be followed by exactly one linebreak character
-(`'\n'`), including the last one.  This is exactly the format produces
+(`'\n'`), including the last one.  This is exactly the format produced
 by `int2ascii`.
 
 Then write a program `ascii2int.c` such that
