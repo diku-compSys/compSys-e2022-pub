@@ -1,3 +1,16 @@
+# Add a list function
+
+Extend the list library covered in the lectures (in the `list/`
+subdirectory) with a new function:
+
+```C
+// Insert element at end of list.  Returns 0 on success.
+int list_insert_last(struct list*, void*);
+```
+
+It should insert a new element at the end of the list.  Make sure to
+write tests for it, and to check that it does not leak memory.
+
 # Implementing a stack
 
 The `calc/` directory contains the code for a simple calculator that
@@ -39,7 +52,7 @@ Finish it for me so the stack calculator will work.
 # List implementation
 
 Change the implementation of the list library covered in the lectures
-(in the `list/`) subdirectory to use a different representation.  Do
+(in the `list/` subdirectory) to use a different representation.  Do
 not change `list.h`.  For example, an implementation with doubly
 linked lists:
 
