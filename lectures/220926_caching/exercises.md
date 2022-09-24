@@ -18,10 +18,10 @@ the mandatory assignments.
 *Note*: Assume words are 32 bit.
 
 * 5.1
-* 5.1.4-6 Note that Matlab uses Column-major order. See [this](https://se.mathworks.com/help/coder/ug/what-are-column-major-and-row-major-representation-1.html) for reference.
+  * 5.1.4-6: Note that Matlab uses Column-major order. See [this](https://se.mathworks.com/help/coder/ug/what-are-column-major-and-row-major-representation-1.html) for reference.
 
 * 5.2
-* Assume the list of addresses are **32-bit** memory address references.
+  * Assume the list of addresses are **32-bit** memory address references.
 
 * 5.5 (*Again*, the tag bits are only supposed to go up to 32)
 
