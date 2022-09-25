@@ -23,7 +23,7 @@ the mandatory assignments.
 * 5.2
   * Assume the list of addresses are **32-bit**.
 
-* 5.5 (The tag bits are only supposed to go up to 32)
+* 5.5 (The tag bits are only supposed to go up to 31)
 
 ## Simple performance measurements
 
