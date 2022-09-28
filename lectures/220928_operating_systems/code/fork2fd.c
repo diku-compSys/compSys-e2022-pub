@@ -4,13 +4,16 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <assert.h>
+#include <fcntl.h>
 
 int main() {
-  FILE *f = fopen("file", "r");
-  assert(f != NULL);
+  int fd = open("file", O_RDONLY);
+  assert(fd >= 0);
+
+  printf("fd: %d\n", fd);
 
   char c;
-  assert(fread(&c, sizeof(char), 1, f) == 1);
+  assert(read(fd, &c, sizeof(char)) == 1);
 
   printf("Read: %c\n", c);
 
@@ -18,14 +21,14 @@ int main() {
 
   if (ret == 0) {
     // Child
-    assert(fread(&c, sizeof(char), 1, f) == 1);
+    assert(read(fd, &c, sizeof(char)) == 1);
     printf("Child read: %c\n", c);
-    fclose(f);
+    close(fd);
   } else {
     // Parent
-    assert(fread(&c, sizeof(char), 1, f) == 1);
+    assert(read(fd, &c, sizeof(char)) == 1);
     printf("Parent read: %c\n", c);
-    fclose(f);
+    close(fd);
 
     // Wait for child.
     waitpid(ret, NULL, 0);

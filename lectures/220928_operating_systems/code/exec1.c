@@ -6,6 +6,7 @@
 #include <assert.h>
 
 int main(int argc, char** argv) {
+  (void)argc;
 
   pid_t ret = fork();
 
