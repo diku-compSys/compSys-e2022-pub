@@ -3,6 +3,7 @@
 #include <unistd.h>
 
 int main(int argc, char** argv) {
+  (void)argc;
   size_t num_gib = atoi(argv[1]);
   int num_procs = atoi(argv[2]);
   size_t to_alloc = num_gib * 1024 * 1024 * 1024;

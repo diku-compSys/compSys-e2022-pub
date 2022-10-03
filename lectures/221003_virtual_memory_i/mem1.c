@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 int main(int argc, char** argv) {
+  (void)argc;
   size_t num_gib = atoi(argv[1]);
   int num_writes = atoi(argv[2]);
   int stride = atoi(argv[3]);
