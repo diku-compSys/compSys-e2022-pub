@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <assert.h>
 
 int main(int argc, char** argv) {
   (void)argc;
@@ -11,6 +12,7 @@ int main(int argc, char** argv) {
   printf("allocating %ld bytes\n", (long)to_alloc);
 
   unsigned char *p = malloc(to_alloc);
+  assert(p != NULL);
 
   for (size_t i = 0; i < to_alloc; i++) {
     p[i] = rand();
