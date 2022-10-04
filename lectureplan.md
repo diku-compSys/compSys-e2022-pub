@@ -13,7 +13,7 @@
 | 39   | 26 Sep | Basic | Troels   | Memory hierarchy and caching                                                  | COD 5.1-5.4 |
 |      | 28 Sep | OS    | Troels   | Intro to Operating systems - kernel, processes, system calls                  | OSTEP 2,4,5 |
 | 40   | 03 Oct | OS    | Troels   | Virtual memory - hardware perspective                                         | COD 5.7-5.8 |
-|      | 05 Oct | OS    | Troels   | Virtual memory - OS perspective                                               | OSTEP 13,14,17 |
+|      | 05 Oct | OS    | Troels   | Virtual memory - OS perspective                                               | OSTEP 13,17 |
 |      |        |       |          | Hand-in A1 -- dynamic allocation + caching                                    |          |
 | 41   | 10 Oct | OS    | Troels   | Concurrency I                                                                 | COD 6.1-6.5 and ??? on the pthreads |
 |      | 12 Oct | OS    | Troels   | Concurrency II                                                                | OSTEP 29,30 |
