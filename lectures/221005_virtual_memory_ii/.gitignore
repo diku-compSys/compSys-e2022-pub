@@ -1,0 +1,4 @@
+mallocs
+mmap_fork
+mmap_shared
+small_mallocs
