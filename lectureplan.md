@@ -15,7 +15,7 @@
 | 40   | 03 Oct | OS    | Troels   | Virtual memory - hardware perspective                                         | COD 5.7-5.8 |
 |      | 05 Oct | OS    | Troels   | Virtual memory - OS perspective                                               | OSTEP 13,17 |
 |      |        |       |          | Hand-in A1 -- dynamic allocation + caching                                    |          |
-| 41   | 10 Oct | OS    | Troels   | Concurrency I                                                                 | COD 6.1-6.5 and ??? on the pthreads |
+| 41   | 10 Oct | OS    | Troels   | Concurrency I                                                                 | COD 6.1-6.5 and OSTEP 27 |
 |      | 12 Oct | OS    | Troels   | Concurrency II                                                                | OSTEP 29,30 |
 | 42   |        |       |          | Fall Vacation - No lectures                                                   |          |
 | 43   | 24 Oct | CN    | David    | Introduction to Computer Networks                                             | KR 1.1 - 1.6 (Optional read - [Internet history](https://www.internetsociety.org/internet/history-internet/brief-history-internet/)) |
