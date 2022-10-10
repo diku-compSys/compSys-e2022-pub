@@ -78,7 +78,7 @@ following equation:
 
 *1/((1-p)+(p/16)) = 5*
 
-Solving for *p*, we get *p=65/75*, or *p ~ 0.86*.
+Solving for *p*, we get *p=64/75*, or *p ~ 0.86*.
 
 </details>
 
