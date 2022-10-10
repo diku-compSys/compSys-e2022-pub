@@ -13,17 +13,8 @@ struct worker_payload {
 
 void* thread(void* p) {
   struct worker_payload work = *(struct worker_payload*)p;
-  free(p);
 
-  long local_sum = 0;
-
-  for (size_t i = work.start; i < work.end; i++) {
-    local_sum += work.data[i];
-  }
-
-  pthread_mutex_lock(&sum_mutex);
-  sum += local_sum;
-  pthread_mutex_unlock(&sum_mutex);
+  // TODO
 
   return NULL;
 }
@@ -52,6 +43,7 @@ int main(int argc, char** argv) {
   pthread_t ptids[nthreads];
   struct worker_payload payloads[nthreads];
   int chunk_size = (size + nthreads - 1) / nthreads;
+  long sum = 0; // TODO: also create mutex.
 
   // TODO: create 'nthreads' threads.  Thread 'i' should sum from
   // data[i*chunk_size] to data[(i+1)*chunk_size] - but note that the

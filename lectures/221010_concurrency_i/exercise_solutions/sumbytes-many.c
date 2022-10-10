@@ -16,7 +16,6 @@ struct worker_payload {
 
 void* thread(void* p) {
   struct worker_payload work = *(struct worker_payload*)p;
-  free(p);
 
   long local_sum = 0;
 
