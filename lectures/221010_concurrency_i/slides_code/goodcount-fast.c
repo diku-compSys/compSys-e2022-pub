@@ -3,7 +3,7 @@
 #include <pthread.h>
 
 pthread_mutex_t cnt_mutex = PTHREAD_MUTEX_INITIALIZER;
-int cnt = 0;
+volatile int cnt = 0;
 
 void *thread(void *vargp) {
   int n = *((int*)vargp);

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-int cnt = 0;
+volatile int cnt = 0;
 
 void *thread(void *vargp) {
   int n = *((int*)vargp);
