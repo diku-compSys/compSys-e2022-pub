@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
   struct worker_payload payloads[nthreads];
   int chunk_size = (size + nthreads - 1) / nthreads;
 
-  // Now create 'nthreads' threads.  Thread 'i' should sum from
+  // TODO: create 'nthreads' threads.  Thread 'i' should sum from
   // data[i*chunk_size] to data[(i+1)*chunk_size] - but note that the
   // last thread may read out-of-bounds if the file size is not
   // divisible by the chunk size!  Make sure you avoid this by making
