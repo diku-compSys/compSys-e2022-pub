@@ -112,6 +112,113 @@ to do is compute the *throughput* of the two programs, and then we can
 compute the speedup-in-throughput.
 </details>
 
+## Parallelisation with POSIX Threads
+
+In the following exercises you will parallelise a program that sums
+the bytes of a file.  A sequential (single-threaded) solution is given
+in [exercise_code/sumbytes-one.c]([exercise_code/sumbytes-one.c]).  We
+will be using the [*fork-join
+model*](https://en.wikipedia.org/wiki/Fork%E2%80%93join_model) of
+parallelism.  Contrary to its name, it has nothing to do with the
+`fork()` function.  Rather it is a model of parallelism where we solve
+a big problem by:
+
+1. Conceptually or physically splitting the problem into *chunks*.
+2. Launching a thread per chunk that processes just that chunk and
+   provides a partial result.  This is the "fork" part.
+3. Waiting for these threads to finish.  This is the "join" part.
+4. Sequentially combining the per-thread partial results into a
+   complete result.
+
+The fork-join model is closely related to the notion of *divide and
+conquer* algorithms.  Its great advantage is that when used correctly,
+it is easy to avoid race conditions.
+
+First you will need to generate a big file.  The `Makefile` in the
+[exercise_code](exercise_code/) contains helpful targets.  For
+example, run `make 1000000000_bytes` to create a file containing one
+billion random bytes.  You can then compile `sumbytes-one` with `make
+sumbytes-one` and benchmark it as follows:
+
+```C
+$ time ./sumbytes-one 1000000000_bytes
+sum: 127499175667
+
+real    0m0.161s
+user    0m0.135s
+sys 0m0.027s
+```
+
+You should read the source code carefully and make sure you understand
+it.  It is not long.  You should check that the result you obtain with
+your parallelised versions is identical to the result produced by the
+sequential version.
+
+### Parallelising with two worker threads
+
+We will start by parallelising the program using two threads.  Each
+thread must sum half of the array into partial sums, which will then
+be added to form the final sum.  In principle, this can result in a 2x
+speedup.
+
+Use the commented skeleton code found in
+[sumbytes-two.c]([exercise_code/sumbytes-two.c]).  The main challenge
+is passing information (the *payload*) to each worker thread.  The
+actual summation is much like in
+[sumbytes-one.c]([exercise_code/sumbytes-one.c]), except that instead
+of summing *all* of data, the first thread sums index 0 up to the
+midpoint, and the other sums from the midpoint and until the end.
+
+#### Usage examples
+
+```
+$ time ./sumbytes-two 1000000000_bytes
+Sum: 127499175667
+
+real    0m0.091s
+user    0m0.143s
+sys     0m0.024s
+```
+
+### Parallising with any number of worker threads
+
+In this variant we will parallelise using *n* threads, where *n* is a
+value given by the user.  In real programs, we would often determine
+*n* by checking how many processors are installed in the machine we
+are running on, but here we make it explicit.
+
+Use the commented skeleton code provided in
+[sumbytes-many.c](exercise_code/sumbytes-many.c).  As before, the main
+design question is which data you pass to each worker thread (i.e. the
+contents of `struct worker_payload`).  The overall structure is
+largely similar to before, except that computing the start- and end
+offsets used in each thread to index `data` are more involved.
+
+#### Usage examples
+
+Note that this program takes an extra initial option, namely the
+number of threads.
+
+```
+$ time ./sumbytes-many 1 1000000000_bytes
+sum: 127499175667
+
+real    0m0.186s
+user    0m0.137s
+sys     0m0.049s
+```
+
+Or with 16 threads:
+
+```
+$ time ./sumbytes-many 16 1000000000_bytes
+sum: 127499175667
+
+real    0m0.043s
+user    0m0.390s
+sys     0m0.083s
+```
+
 ## Exercises from COD
 
 * 6.3
