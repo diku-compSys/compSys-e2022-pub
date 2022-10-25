@@ -4,12 +4,22 @@
 /* $begin echoserverimain */
 #include "csapp.h"
 
-void processmessage(int connfd);
+void echo(int connfd)
+{
+    size_t n;
+    char buf[MAXLINE];
+    rio_t rio;
+
+    Rio_readinitb(&rio, connfd);
+    while((n = Rio_readlineb(&rio, buf, MAXLINE)) != 0) { //line:netp:echo:eof
+		printf("server received %d bytes\n", (int)n);
+		Rio_writen(connfd, buf, n);
+    }
+}
 
 int main(int argc, char **argv)
 {
-    int listenfd; 
-    int connfd;
+    int listenfd, connfd;
     socklen_t clientlen;
     struct sockaddr_storage clientaddr;  /* Enough space for any address */  //line:netp:echoserveri:sockaddrstorage
     char client_hostname[MAXLINE], client_port[MAXLINE];
@@ -26,7 +36,7 @@ int main(int argc, char **argv)
         Getnameinfo((SA *) &clientaddr, clientlen, client_hostname, MAXLINE,
                     client_port, MAXLINE, 0);
         printf("Connected to (%s, %s)\n", client_hostname, client_port);
-        processmessage(connfd);
+        echo(connfd);
         Close(connfd);
     }
     exit(0);
