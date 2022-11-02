@@ -17,7 +17,6 @@ Problems
 * P4
 * P5
 * P10
-* P13
 
 ## Programming
 Browse the complete HTTP RFC and convince yourself that it is too long to read entirely. It can be found here: https://www.rfc-editor.org/rfc/rfc2616
