@@ -183,14 +183,14 @@ https://nexs.ku.dk/kontakt/findvej/kort_norre-campus/
 ### Rooms
 
 Wednesday: 
-  * NBB 01.3.I.080
-  * NBB 01.3.I.164
-  * NBB 01.3.H.142 -- Only in weeks with assignment deadlines
+  * HCØ A101
+  * HCØ A102
+  * HCØ A103 -- Only in weeks with assignment deadlines
 
 Friday: 
-  * NBB 01.3.I.080
-  * NBB 01.3.I.164
-  * NBB 01.3.H.142 -- Only in weeks with assignment deadlines
+  * BIOcenter 4-0-10
+  * BIOcenter 4-0-13
+  * BIOcenter 4-0-05 -- Only in weeks with assignment deadlines
 
 
 
