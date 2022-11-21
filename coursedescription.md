@@ -87,12 +87,12 @@ TAs:
   * Jóhann Utne
   * Kjartan Johannesen
 
-## Lectures (expected)
+## Lectures
 
  * Mondays at 13:15-15:00
  * Wednesdays at 10:15-12:00
 
-All lectures are held in Lundbeck Auditoriet at the Biocenter.
+All lectures are held in HCØ Aud1.
 
 ## Exercise Classes (expected)
 Exercises will mainly be with physical help.
@@ -154,7 +154,7 @@ Held Monday 15-17 and Wednesday 13-15.
  * Class 5: Asbjørn
    * Monday: HCØ A105
    * Wednesday: HCØ A105
- * Class 6: ?
+ * Class 6: Johann
    * Monday: HCØ A106
    * Wednesday: HCØ A106
 
