@@ -137,7 +137,7 @@ Held Monday 15-17 and Wednesday 13-15.
    * Tuesday 13-15: DIKU 1-0-37 
    * Friday 10-12: Biocenter 2-0-07/09  
 
-#### Block 1
+#### Block 2
 
  * Class 1: Iben
    * Monday: HCØ A101
