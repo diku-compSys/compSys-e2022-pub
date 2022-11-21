@@ -133,11 +133,34 @@ Held Monday 15-17 and Wednesday 13-15.
    * Wednesday: NEXS Auditorium Nord
 
 
- * Class Blok B: Jóhann
+ * Class Schema B: Jóhann
    * Tuesday 13-15: DIKU 1-0-37 
    * Friday 10-12: Biocenter 2-0-07/09  
 
-<!-- #### Block 2 -->
+#### Block 1
+
+ * Class 1: Iben
+   * Monday: HCØ A101
+   * Wednesday: HCØ A101
+ * Class 2: Johan
+   * Monday: HCØ A102
+   * Wednesday: HCØ A101
+ * Class 3: Julian
+   * Monday: HCØ A103
+   * Wednesday: HCØ A103
+ * Class 4: Kjartan
+   * Monday: HCØ A104
+   * Wednesday: HCØ A104
+ * Class 5: Asbjørn
+   * Monday: HCØ A105
+   * Wednesday: HCØ A105
+ * Class 6: ?
+   * Monday: HCØ A106
+   * Wednesday: HCØ A106
+
+ * Class Schema B: ?
+   * Tuesday 13-15: ?
+   * Friday 10-12: ?
 
 
 ### Room details
