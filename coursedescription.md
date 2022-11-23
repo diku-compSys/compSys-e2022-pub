@@ -158,9 +158,9 @@ Held Monday 15-17 and Wednesday 13-15.
    * Monday: HCØ A106
    * Wednesday: HCØ A106
 
- * Class Schema B: ?
-   * Tuesday 13-15: ?
-   * Friday 10-12: ?
+ * Class Schema B: Christian
+   * Tuesday 13-15: DIKU 1-0-04
+   * Friday 10-12: Changes weekly. Check: https://skema.ku.dk/tt/tt.asp?SDB=KU2223&language=DK&folder=Reporting&style=textspreadsheet&type=module&idtype=id&id=111921&weeks=17-27&days=5&periods=1-68&width=0&height=0&template=SWSCUST2+module+textspreadsheet
 
 
 ### Room details

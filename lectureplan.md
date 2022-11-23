@@ -38,7 +38,7 @@
 |      | 14 Dec | Arc   | Finn     | Avanceret Mikroarkitektur II                                                  | TBD |
 |      |        |       |          | Hand-in A5 -- Single cycle processor                                          |  |
 | 51   | 19 Dec | Arc   | Finn     | Shared memory multithreading                                                  | 6.? + TBD |
-|      | 21 Dec |       | Everyone | Christmas lecture                                                             |         |
+|      | 21 Dec |       | Everyone | Christmas lecture (possible guest lecture)                                    |         |
 | 52   |        |       |          | Christmas vacation - No lectures                                              |         |
 | 53   |        |       |          | Christmas vacation - No lectures                                              |         |
 | 1    | 04 Jan | CN    | Michael  | Network layer, data plane                                                     | KR 4.1 - 4.2.4, 4.3 (Optional read - [Design Philosophy of DARPA Internet Protocols](http://www.cs.princeton.edu/courses/archive/spr14/cos461/papers/clark88.pdf)) |
