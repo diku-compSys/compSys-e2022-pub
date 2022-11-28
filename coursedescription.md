@@ -144,7 +144,7 @@ Held Monday 15-17 and Wednesday 13-15.
    * Wednesday: HCØ A101
  * Class 2: Johan
    * Monday: HCØ A102
-   * Wednesday: HCØ A101
+   * Wednesday: HCØ A102
  * Class 3: Julian
    * Monday: HCØ A103
    * Wednesday: HCØ A103
