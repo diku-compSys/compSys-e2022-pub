@@ -1,0 +1,91 @@
+Vejledende løsning af COD opgave 4.5
+------------------------------------
+
+Udgangspunkt: Vi har en instruktion med værdien 0x00c6ba23
+det er binært: 0000 0000 1100 0110 1011 1010 0010 0011
+
+Det er nemmest for resten af opgaven først at afkode instruktionen:
+Opcode er 0100011. Det er en S-type instruktion (en sw).
+Felterne i S-format er givet af fig 4.16.
+
+felt      imm11-5 rs2   rs1   funct3  imm4-0 opcode
+binært    0000000 01100 01101 011     10100  0100011
+hex       0       C     D     3       14     23     
+decimal   0       12    13    3       20     35
+
+
+4.5.1
+-----
+
+ALU control units input er ALUop, funct7 og funct3.
+
+ALUop genereres af Control unit.
+
+for at finde ALUop bruger vi fig 4.26, p.281, der beskriver Control unit.
+
+input til Control er "opcode" feltet, som udgør bits 6:0 af instruktionen.
+For en instruktion med værdien 0x00c6ba23 er opcode = 0100011 binær
+
+For dette input vil Control sætte ALUop = 00 binær
+
+For en instruktion med værdien 0x00c6ba23 er
+funct7 = 0000000 binær
+funct3 = 011 binær
+Men de værdier bliver iøvrigt ignoreret når ALUop = 00 i henhold til figur 4.13, p. 271
+
+
+4.5.2
+-----
+
+Efter udførelsen er PC forøget med 4.
+
+flg refererer til figur 4.21, p. 277:
+
+Den nye PC beregnes af adderen øverst til venstre i figuren. Muxen yderst til højre
+vælger resultatet derfra (input til mux = 0). Resultatet skrives tilbage til PC registeret.
+
+
+4.5.3
+-----
+
+Vi navngiver mux'ene som følger:
+MuxPC. Mux der vælger næste PC, placeret øverst til højre i fig 4.21
+MuxRes. Mux der vælger resultat, placeret yderst til højre i fig 4.21
+MuxSrc. Mux der vælger input til ALU, placeret mellem ALU og registre i fig 4.21
+
+Instruktionen er i S-format. ImmGen skal i henhold til tabel 4.18
+levere en værdi sammensat af flg bits fra instruktionen:
+
+0x00c6ba23 er binært 00000000 11000110 10111010 00100011
+
+bit:   i31 ... i31 i30 i29 i28 i27 i26 i25 i11 i10 i9 i8 i7
+værdi: 0   ... 0   0   0   0   0   0   0   1   0   1  0  0   = 0x00000014
+
+
+Input til MuxPC er PC+4 (se svar til 4.5.2) og PC+0x014, hvor offset
+beregnes af ImmGen. Styresignalet er 0.
+
+Input til MuxSrc er Reg[x12] og 0x014. Styresignalet ALUSrc er 1.
+
+Input til MuxRes er resultatet fra ALUen (som vil være Reg[x13] + 0x014)
+og indholdet af den adresse i lageret som udpeges af samme. Styresignalet
+er udefineret. Ingen af værdierne bruges til noget da RegWrite = 0.
+
+
+4.5.4
+-----
+
+Inputs til ALUen er Reg[x13] og 0x14
+Inputs til Adder øverst til venstre er PC og 4.
+Inputs til Adder øverst til højre er PC og 0x14
+
+
+4.5.5
+-----
+
+Inputs til register "unit":
+
+read register 1: 0xd
+read register 2: 0xc
+write register: 0x14
+write data: 0
