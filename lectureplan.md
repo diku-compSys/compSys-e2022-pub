@@ -32,17 +32,17 @@
 | 48   | 28 Nov | Arc   | Finn     | Digital logic                                                                 | COD A.1 - A.3, A.5, A7 - A.9 |
 |      | 30 Nov | Arc   | Finn     | En simpel maskine                                                             | COD 4.1 - 4.4 |
 |      |        |       |          | Hand-in A4 -- Threaded Server/application, multi-threaded performance         |  |
-| 49   | 05 Dec | Arc   | Finn     | A5 - Simulation af en maskine                                                 |  |
+| 49   | 05 Dec | Arc   | Finn     | A5 - Simulation af en maskine                                                 | RISCV 2.2 - 2.6 + 6 [RISCV](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf) |
 |      | 07 Dec | Arc   | Finn     | Into til Mikroarkitektur: Pipelining og ydeevne                               | COD 4.6 - 4.9 |
-| 50   | 12 Dec | Arc   | Finn     | Avanceret Mikroarkitektur I                                                   | 4.? + TBD |
+| 50   | 12 Dec | Arc   | Finn     | Avanceret Mikroarkitektur I                                                   | COD 4.? + TBD |
 |      | 14 Dec | Arc   | Finn     | Avanceret Mikroarkitektur II                                                  | TBD |
-|      |        |       |          | Hand-in A5 -- Single cycle processor                                          |  |
-| 51   | 19 Dec | Arc   | Finn     | Shared memory multithreading                                                  | 6.? + TBD |
+|      |        |       |          | Hand-in A5 -- Simulation af en maskine                                        |  |
+| 51   | 19 Dec | Arc   | Finn     | Shared memory multithreading og A6                                            | COD 6.? + TBD |
 |      | 21 Dec |       |          | Christmas lecture by Mads Ynddal and Pankaj Raghav fra Samsung's Global Open Source Team                                    |         |
 | 52   |        |       |          | Christmas vacation - No lectures                                              |         |
 | 53   |        |       |          | Christmas vacation - No lectures                                              |         |
 | 1    | 04 Jan | CN    | Michael  | Network layer, data plane                                                     | KR 4.1 - 4.2.4, 4.3 (Optional read - [Design Philosophy of DARPA Internet Protocols](http://www.cs.princeton.edu/courses/archive/spr14/cos461/papers/clark88.pdf)) |
-|      |        |       |          | Hand-in A6 -- Pipeline processor                                              |         |
+|      |        |       |          | Hand-in A6 -- Performance simulering                                          |         |
 | 2    | 09 Jan | CN    | Michael  | Network layer, control plane                                                  | KR 5.1 - 5.3 |
 |      | 12 Jan | CN    | Michael  | Link Layer and Networks Security (lecture from 9:15)                          | KR 6.1 - 6.4.3, KR 8.5 - 8.6, 8.9 (8.9 only cursorily) |
 | 4    | 23 Jan |       | Everyone | Exam question session, recap and evaluation                                   |         |
