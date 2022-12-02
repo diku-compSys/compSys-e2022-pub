@@ -32,7 +32,7 @@
 | 48   | 28 Nov | Arc   | Finn     | Digital logic                                                                 | COD A.1 - A.3, A.5, A7 - A.9 |
 |      | 30 Nov | Arc   | Finn     | En simpel maskine                                                             | COD 4.1 - 4.4 |
 |      |        |       |          | Hand-in A4 -- Threaded Server/application, multi-threaded performance         |  |
-| 49   | 05 Dec | Arc   | Finn     | A5 - Simulation af en maskine                                                 | RISCV 2.2 - 2.6 + 6 [RISCV](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf) |
+| 49   | 05 Dec | Arc   | Finn     | A5 - Simulation af en maskine                                                 | RISCV 2.2 - 2.6 + 6 [RISCV](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf) og lille note om afkodning |
 |      | 07 Dec | Arc   | Finn     | Into til Mikroarkitektur: Pipelining og ydeevne                               | COD 4.6 - 4.9 |
 | 50   | 12 Dec | Arc   | Finn     | Avanceret Mikroarkitektur I                                                   | COD 4.? + TBD |
 |      | 14 Dec | Arc   | Finn     | Avanceret Mikroarkitektur II                                                  | TBD |
