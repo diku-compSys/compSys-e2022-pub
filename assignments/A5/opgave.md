@@ -24,9 +24,9 @@ Der udleveres nogle programmer som skal afvikles på simulatoren. Disse programm
 
 Besvarelsen skal indeholde:
 
-* En kort rapport
-* Implementationen af simulerings-funktionen
-* Dokumentation for kørsel af programmer på simulatoren
+* En kort rapport (20%)
+* Implementationen af simulerings-funktionen (40%)
+* Dokumentation for kørsel af programmer på simulatoren (40%)
 
 Hvis de udleverede programmer ikke kan bringes til at køre på simulatoren, skal det klart
 fremgå af besvarelsen og der skal gøres et systematisk forsøg på at klarlægge hvilke
