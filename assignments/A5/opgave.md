@@ -1,6 +1,6 @@
 # Simulatoropgaven (A5, CompSys 2022)
 
-Finn Schiermer Andersen, november 2022, foreløbig udgave
+Finn Schiermer Andersen, rev 1.0, 6. december.
 
 Denne opgave stilles mandag den 5. december og skal afleveres kl 12 søndag den 18. december.
 
@@ -183,3 +183,8 @@ riscv32-unknown-elf-objdump -S test.riscv >> test.dis
 
 Vi udleverer en Makefile som kan drive oversættelsen - men bemærk at den skal tilpasses
 til den lokale installation, før den kan bruges.
+
+## Gode råd
+
+Bare brug integers til så meget som muligt. Der er ikke brug for f.eks. "struct" erklæringer.
+Læs op på hvordan man i C bruger skifte operationer og bitvis and/or til at "fiske" bitfelter ud af tal.
