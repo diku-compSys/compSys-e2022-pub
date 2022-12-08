@@ -55,7 +55,7 @@ void memory_wr_h(struct memory *mem, int addr, int data)
   if ((addr & 2) == 0)
     page[index] = (page[index] & 0xffff0000) | (data & 0x0000ffff);
   else
-    page[index] = (page[index] & 0x0000ffff) | (data << 16);
+    page[index] = (page[index] & 0x0000ffff) | ((unsigned)data << 16);
 }
 
 void memory_wr_b(struct memory *mem, int addr, int data)
@@ -74,7 +74,7 @@ void memory_wr_b(struct memory *mem, int addr, int data)
     page[index] = (page[index] & 0xff00ffff) | ((data & 0xff) << 16);
     break;
   case 3:
-    page[index] = (page[index] & 0x00ffffff) | ((data & 0xff) << 24);
+    page[index] = (page[index] & 0x00ffffff) | (((unsigned)(data & 0xff)) << 24);
     break;
   }
 }
