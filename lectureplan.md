@@ -34,8 +34,8 @@
 |      |        |       |          | Hand-in A4 -- Threaded Server/application, multi-threaded performance         |  |
 | 49   | 05 Dec | Arc   | Finn     | A5 - Simulation af en maskine                                                 | RISCV 2.2 - 2.6 + 6 [RISCV](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf) og lille note om afkodning |
 |      | 07 Dec | Arc   | Finn     | Into til Mikroarkitektur: Pipelining og ydeevne                               | COD 4.6 - 4.9 |
-| 50   | 12 Dec | Arc   | Finn     | Avanceret Mikroarkitektur I                                                   | COD 4.? + TBD |
-|      | 14 Dec | Arc   | Finn     | Avanceret Mikroarkitektur II                                                  | TBD |
+| 50   | 12 Dec | Arc   | Finn     | Avanceret Mikroarkitektur I                                                   | COD 4.11 + [note](https://github.com/diku-compSys/compSys-e2022-pub/blob/main/resources/Afviklingsplot/plot.md) |
+|      | 14 Dec | Arc   | Finn     | Avanceret Mikroarkitektur II                                                  | TBD + [note](https://github.com/diku-compSys/compSys-e2022-pub/blob/main/resources/Afviklingsplot/plot.md) |
 |      |        |       |          | Hand-in A5 -- Simulation af en maskine                                        |  |
 | 51   | 19 Dec | Arc   | Finn     | Shared memory multithreading og A6                                            | COD 6.? + TBD |
 |      | 21 Dec |       |          | Christmas lecture by Mads Ynddal and Pankaj Raghav fra Samsung's Global Open Source Team                                    |         |
