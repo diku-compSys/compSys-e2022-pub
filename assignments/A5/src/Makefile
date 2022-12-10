@@ -5,7 +5,7 @@ all: main
 rebuild: clean all
 
 # main uses simulate
-main: main.c 
+main: *.c 
 	$(GCC) *.c -o main 
 
 zip: ../src.zip
