@@ -188,3 +188,13 @@ til den lokale installation, før den kan bruges.
 
 Bare brug integers til så meget som muligt. Der er ikke brug for f.eks. "struct" erklæringer.
 Læs op på hvordan man i C bruger skifte operationer og bitvis and/or til at "fiske" bitfelter ud af tal.
+
+Vil du have simplere .dis filer? I kommandoen til krydsoversætteren udskiftes "-O1" med "-Os".
+
+Vil du lave dine egne .dis filer fra en assembler fil? I kommandoen til krydsoversætteren
+udskiftes C-filerne med din egen assembler fil. Den skal have suffix ".s" og indledes med
+
+~~~
+    .globl _start
+_start:
+~~~
