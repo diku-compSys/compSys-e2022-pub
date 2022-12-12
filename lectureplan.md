@@ -44,7 +44,7 @@
 | 1    | 04 Jan | CN    | Michael  | Network layer, data plane                                                     | KR 4.1 - 4.2.4, 4.3 (Optional read - [Design Philosophy of DARPA Internet Protocols](http://www.cs.princeton.edu/courses/archive/spr14/cos461/papers/clark88.pdf)) |
 |      |        |       |          | Hand-in A6 -- Performance simulering                                          |         |
 | 2    | 09 Jan | CN    | Michael  | Network layer, control plane                                                  | KR 5.1 - 5.3 |
-|      | 12 Jan | CN    | Michael  | Link Layer and Networks Security (lecture from 9:15)                          | KR 6.1 - 6.4.3, KR 8.5 - 8.6, 8.9 (8.9 only cursorily) |
+|      | 11 Jan | CN    | Michael  | Link Layer and Networks Security (lecture from 9:15)                          | KR 6.1 - 6.4.3, KR 8.5 - 8.6, 8.9 (8.9 only cursorily) |
 | 4    | 23 Jan |       | Everyone | Exam question session, recap and evaluation                                   |         |
 |      | 25 Jan |       |          | CompSys Exam                                                                  |         |
 
