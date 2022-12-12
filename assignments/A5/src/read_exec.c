@@ -7,6 +7,9 @@
 
 #define MAXLINE 1024
 char line[MAXLINE];
+char hexes[4][9]; // 8+1 for zero termination
+char symbol[1024];
+char opcode[8], args[16], rest[24];
 
 int is_hex(char c)
 {
@@ -70,10 +73,7 @@ int read_exec(struct memory *mem, struct assembly *as, const char *name, FILE *l
     char *msg = "Ukendt";
     int addr;
     int a;            // value
-    char hexes[4][9]; // 8+1 for zero termination
-    char symbol[1024];
     int num_hex = 0;
-    char opcode[8], args[16], rest[24];
     int n = sscanf(line, " %x %s%s%s%s*c[ ]*c[]", &addr, hexes[0], hexes[1], hexes[2], hexes[3]);
     if (n >= 2)
     {
@@ -81,6 +81,7 @@ int read_exec(struct memory *mem, struct assembly *as, const char *name, FILE *l
     }
     if (num_hex)
     {
+   
       msg = "Data";
       for (int i = 0; i < num_hex; ++i)
       {
