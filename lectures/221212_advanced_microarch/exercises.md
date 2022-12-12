@@ -8,7 +8,7 @@ Overskydende øvelser fra forrige uge.
 
 ## Øvelser i afviklingsplot
 
-(se note her: https://github.com/diku-compSys/compSys-e2022-internal/blob/main/material/Afviklingsplot/plot.md)
+(se note her: https://github.com/diku-compSys/compSys-e2022-pub/blob/main/resources/Afviklingsplot/plot.md)
 
 ### Opgave 1
 
