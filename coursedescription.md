@@ -188,9 +188,9 @@ Wednesday:
   * HCØ A103 -- Only in weeks with assignment deadlines
 
 Friday: 
-  * BIOcenter 4-0-10
-  * BIOcenter 4-0-13
-  * BIOcenter 4-0-05 -- Only in weeks with assignment deadlines
+  * HCØ A103
+  * HCØ A104
+  * HCØ A105 -- Only in weeks with assignment deadlines
 
 
 
