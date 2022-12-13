@@ -2,7 +2,7 @@
 
 Finn Schiermer Andersen, rev 1.0, 6. december.
 
-Denne opgave stilles mandag den 5. december og skal afleveres kl 12 søndag den 18. december.
+Denne opgave stilles mandag den 5. december og skal afleveres kl 16 søndag den 18. december.
 
 
 
