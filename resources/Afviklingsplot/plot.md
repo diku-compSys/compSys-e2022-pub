@@ -1,5 +1,7 @@
 # Afviklingsplot og Mikroarkitektur
 
+Opdateret 13. december
+
 Afviklingsplot er en kompakt måde at anskueliggøre en computers opførsel under udførelse
 af et program. Det kan bruges til at gøre diskussioner af ydeevne konkrete. 
 Afviklingsplot kan genereres ud fra regler som udgør en abstrakt beskrivelse af

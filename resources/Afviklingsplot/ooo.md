@@ -252,8 +252,8 @@ er der færre schedulere som hver især kan udvælge flere instruktioner.
 
 Bemærk at da schedulering foretages flere pipeline trin før udførelse, så er den af
 natur spekulativ og baseret på antagelser om latenstider og vil fejle hvis en instruktion 
-har en anden latenstid end antaget, for eksempel ved et cache-miss. Vi vil ikke gå ind 
-i hvordan systemet håndterer en sådan "fejlschedulering".
+har en anden latenstid end antaget, for eksempel ved et cache-miss. Vi vil senere 
+kort beskrive hvordan systemet håndterer en sådan "fejlschedulering".
 
 Når en instruktion er udvalgt skal den læse operander fra de fysiske kilde-registre
 før den endelig kan udføres og slutteligt skrive sit resultat til et fysisk destinationsregister.
@@ -269,50 +269,116 @@ De nye pipeline trin i dataflow-sektionen er:
 For hop og aritmetiske instruktioner (excl mul) ender vi med følgende "flow" beskrivelse:
 
 ~~~
-ALU-op: Fa Fb Fc De Fu Al Rn Qu pk rd ex wr Ca Cb
+ALU-op: Fa Fb Fc De Fu Al Rn Qu pk rd ex wb Ca Cb
 branch: Fa Fb Fc De Fu Al Rn Qu pk rd ex Ca Cb
 
 inorder: Fa,Fb,Fc,De,Fu,Al,Rn,Qu,Ca,Cb
-outoforder: pk,rd,ex,wr
+outoforder: pk,rd,ex,wb
 ~~~
 
-Vi kan nu (omsider) se hvad et fejlforudsagt hop koster (i vores maskine). 
-"Fa" for instruktionen efter hoppet kan tidligst ligge i cyklen efter "ex" for det 
-fejlforudsagte hop. Det giver en "branch mispredict penalty" på 11 maskincykler.
+Vi udtrykker størrelsen af dataflow-sektionen i form af en resource begrænsning for
+antallet af instruktioner mellem Qu og Ca. For eksempel kunne en fire-vejs out-of-order
+maskine med 64 instruktioner i dataflow-sektionen være beskrevet således:
+
+~~~
+Resources: Fa:4, Fb:4, Fc:4, De:4, Fu:4, Al:4, Rn:4 [Qu-Ca]:64, Ca:4, Cb:4
+~~~
+
+Instruktioner som venter i dataflow-sektionen på at blive udvalgt til udførelse eller
+på at blive fuldført (commit) kan vi markere med "--". Det giver afviklingsplot a la
+
+~~~
+Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- Ca Cb
+Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ex wb -- Ca Cb
+Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb -- -- Ca Cb
+Fa Fb Fc De Fu Al Rn Qu -- -- -- pk rd ex wb Ca Cb
+~~~
+
+Vi har nu beskrevet tilstrækkeligt meget af mikroarkitekturen til at vi kan bestemme
+hvad et fejlforudsagt hop koster (i vores maskine). "Fa" for instruktionen efter hoppet 
+kan tidligst ligge i cyklen efter "ex" for det fejlforudsagte hop. Det giver en 
+"branch mispredict penalty" på 11 maskincykler.
 
 Typiske tal for moderne mikroarkitekturer er 10-15 maskincykler.
 
-### Lagerreferencer
+### Load instruktioner
 
 Håndtering af lagerreferencer er den mest komplicerede del af en moderne mikroarkitektur.
 Formodentlig cirka ligeså omfattende som alle de øvrige elementer til sammen. Så "brace for impact!"
 
-Vi starter blidt: skrivning til lageret må ikke foregå spekulativt. En store instruktion
+Først betragter vi load instruktioner der finder deres data i datacachen. De har
+følgende "flow" beskrivelse:
+
+~~~
+load: Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc wb Ca Cb
+
+outoforder: pk,rd,ex,ag,ma,mb,mc,wr
+~~~
+
+Ved cache-miss er data først tilgængeligt meget senere. Vi markerer forsinkelse
+af load data, uanset årsag, ved at forsinke "wb". Et cache miss i L1 cache og hit 
+i L2 cache kunne give følgende afviklingsplot:
+
+~~~
+load: Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc -- -- -- -- -- -- -- -- -- wb Ca Cb
+~~~
+
+### Store instruktioner
+
+Skrivning til lageret må ikke foregå spekulativt. En store instruktion
 kan ikke opdatere lageret før den har nået "commit" og vi ved med sikkerhed at den
 virkeligt skal fuldføres. Ergo må skrivninger holdes tilbage i en kø, analogt til
 køen af allokerede destinationsregistre. Denne kø kaldes en store-kø.
+
+Omvendt: selvom store instruktioner ikke må opdatere lageret, så skal alle
+efterfølgende load instruktioner fra samme instruktionsstrøm *se* opdateringerne.
+Når disse opdateringer ikke er at finde i lageret (der jo ikke må opdateres), så må
+de findes i store-køen.
 
 Store-køen indeholder store instruktioner i programrækkefølge og for hver instruktion
 følgende data:
 
  * Adresse.
  * Er adressen gyldig?
- * Data
+ * Data (altid som et word på adresse delelig med 4)
  * Er data gyldig - dette angives pr byte
 
-Vi allokerer pladser i store-køen i rename-trinnet. Bemærk at en store instruktion
-udføres i to faser - fase et er beregning af adressen, som derpå skrives i det relevante
-felt i store-køen. Fase to er overførsel af den værdi der skal skrives til det relevante
-felt i store-køen. Faserne vil ofte blive skeduleret separat så fase to kan i nogle 
-maskiner ske før fase et.
+Vi allokerer pladser i store-køen i rename-trinnet. 
+
+En store instruktion udføres som to særskilte operationer
+
+ 1. Beregning af adressen, som derpå skrives i det relevante felt i store-køen.
+    Også tilgang til cache med henblik på at udløse page faults eller cache-miss
+ 2. Overførsel af store data til store-køen. 
+
+De to operationer vil ofte blive skeduleret separat. Det kan vi illustrere sådan her:
+
+~~~text
+store: Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc -- Ca Cb   // addresse
+       -                    Qu -- -- -- -- pk rd st Ca Cb   // data
+~~~
 
 For både load og store instruktioner startes cache opslag så snart deres adresse er
 beregnet. Men store instruktioner skriver ikke deres data til cachen i første omgang.
 Opslaget foretages for at trigge eventuelle TLB miss og cache miss. Opdatering af
 cachen sker først senere når store instruktionen bliver den ældste i store-køen og når
-til commmit-trinnet.
+til commmit-trinnet. Vi viser ikke denne sene skrivning til cachen i afviklingsplottet.
 
-Når en load instruktion har
+### Store til Load forwarding
+
+Betragt denne instruktionssekvens
+
+~~~
+sb  x7,(x4)
+sb  x8,1(x4)
+sb  x9,3(x4)
+lw  x10,(x4)
+~~~
+
+Load instruktionen til sidst skal gerne ende med at "loade" en værdi der er sammensat af de
+tre bytes fra store instruktionerne ovenfor og en enkelt byte fra lageret.
+
+Det kræver et omfattende maskineri: Når en load instruktion har
 beregnet den adresse den skal tilgå, sammenlignes adressen med alle ældre store instruktioner
 i store-køen (vi ignorerer her hvordan der holdes rede på instruktioners "alder").
 Der kan være flere matchende store instruktioner.
@@ -323,10 +389,18 @@ Bemærk at for hver byte kan der være en sådan nyeste store instruktion eller 
 sidste tilfælde hentes den relevante byte i stedet fra datacachen.
 
 Hele denne process udføres parallelt med opslaget i datacachen og er derfor almindeligvis
-"skjult" - latenstiden matcher opslaget i cachen.
+"skjult" - latenstiden matcher opslaget i cachen. Vi anfører ikke i vores afviklingsplot
+om en load får sin værdi fra cache, tidligere store eller en kombination deraf.
 
-Det vil forekomme at load instruktioner søger i store-køen og rammer en store hvis
-adresse endnu ikke er beregnet. Denne situation kan håndteres på flere måder:
+Der kan opstå to "udfordringer"
+
+ * En tidligere store med matchende adresse har endnu ikke skrevet data til store-køen
+ * En tidligere store har endnu ikke beregnet adresse
+
+I det første tilfælde må load instruktionen udskyde sin "wb" til efter den (de) matchende
+store instruktion(er) har overført data til skrive-køen.
+
+Den anden situation kan håndteres på flere måder:
 
  * konservativt: load instruktionen må vente. Det viser sig at give meget dårlig ydeevne.
  * aggressivt: ignorer problemet, udfør load på basis af tilgængelige data. tjek efter senere
@@ -338,20 +412,40 @@ foretager den en sammenligning med instruktionerne i load-køen. Matchende yngre
 load-instruktioner "vækkes" og derpå genkøres søgeprocessen for de vækkede load-instruktioner, 
 så de får en chance for at få et korrekt resultat.
 
-Når vi konstruerer vores afviklingsplot vil vi nøjes med at modellere cache-tilgangen
-og se bort fra de mulige forsinkelser der kan opstå på grund af aliasing.
+Når vi konstruerer vores afviklingsplot vil vi nøjes med at forsinke "wb" uanset,
+hvad der er den bagvedliggende årsag.
 
-Det giver os følgende "flow" for load og store:
+### Fejlagtig planlægning (mis-scheduling)
 
-~~~
-load:  Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc wr Ca Cb
-store: Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc Ca Cb
+Schedulering sker under antagelse af en bestemt latenstid for de involverede
+instruktioner. Det fungerer perfekt for instruktioner som altid har den samme
+latenstid, men ikke for instruktioner med variabel latenstid. For eksempel load
+instruktioner. En load der får et hit i L1 har en latenstid på 4 cykler. Men en load
+der har et miss i L1 eller skal forwarde fra en store som ikke har data eller addresse
+har en længere latenstid.
 
-outoforder: pk,rd,ex,ag,ma,mb,mc,wr
-~~~
+På det tidspunkt hvor behovet for forsinket wb opdages kan instruktioner som skal
+have forwardet resultat fra en load allerede være udvalgt og være på vej ned
+igennem andre pipelines. Disse instruktioner vil blive udført med forkerte input
+og beregne forkerte resultater. Vi kan ikke stalle de afhængige instruktioner, fordi
+vi gerne skal kunne køre andre uafhængige instruktioner gennem de samme pipelines.
 
-Vi viser ikke den afsluttende skrivning fra store instruktioner til cachen der finder
-sted som led i commit.
+En mulig måde at håndtere problemet på er at gøre følgende i den cycle, hvor der
+ellers skulle have været udført wb:
+
+ * Annuller alle instruktioner i pk,rd,ex,ag - uanset om de er afhængige eller ej
+ * Retabler schedulerens tilstand fra tre clockcykler tidligere (du har taget backup, ikke?)
+ * Men uden at den forsinkede værdi (fra f.eks. cache miss) er regnet som tilgængelig
+
+I de efterfølgende cyckler vil scheduleren planlægge således at afhængige instruktioner
+ikke udvælges. På et senere tidspunkt, når den forsinkede værdi bliver tilgængelig,
+signaleres dette til scheduleren og de afhængige instruktioner kan igen blive udvalgt.
+
+Fejlagtig planlægning er dyrt, og det kan søges minimeret ved forudsigere, der
+på basis af programmets tidligere opførsel vil levere et bedre gæt på latenstiden
+for load instruktioner.
+
+Vi ignorerer fejlagtig planlægning helt i udarbejdelsen af afviklingsplot.
 
 ### Et samlet billede
 
@@ -366,14 +460,14 @@ To gennemløb:
 
 ~~~
 						0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8
-0:  lw x11,0(x10)		Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc wr Ca Cb
-4:  add x10,x10,4		Fa Fb Fc De Fu Al Rn Qu pk rd ex wr -- -- -- Ca Cb
-8:  add x12,x12,x11		Fa Fb Fc De Fu Al Rn Qu -- -- -- -- pk rd ex wr Ca Cb
+0:  lw x11,0(x10)		Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc wb Ca Cb
+4:  add x10,x10,4		Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- Ca Cb
+8:  add x12,x12,x11		Fa Fb Fc De Fu Al Rn Qu -- -- -- -- pk rd ex wb Ca Cb
 C:  bne x10,x13,0		Fa Fb Fc De Fu Al Rn Qu -- pk rd ex -- -- -- -- Ca Cb
-0:  lw x11,0(x10)		   Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc wr Ca Cb
+0:  lw x11,0(x10)		   Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc wb Ca Cb
 4:  add x10,x10,4		   Fa Fb Fc De Fu Al Rn Qu pk rd ex -- -- -- -- Ca Cb
-8:  add x12,x12,x11		   Fa Fb Fc De Fu Al Rn Qu -- -- -- -- pk rd ex wr Ca Cb
-C:  bne x10,x13,0		   Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wr -- -- -- Ca Cb
+8:  add x12,x12,x11		   Fa Fb Fc De Fu Al Rn Qu -- -- -- -- pk rd ex wb Ca Cb
+C:  bne x10,x13,0		   Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb -- -- -- Ca Cb
 ~~~
 
 På denne kodestump opnås en IPC på 4.

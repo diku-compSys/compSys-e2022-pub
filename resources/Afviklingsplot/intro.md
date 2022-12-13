@@ -1,7 +1,7 @@
 ## Introduktion
 
-Nedenfor ses et afviklingsplot for fire instruktioner på en fem-trins pipeline 
-svarende til beskrivelsen i [COD p. 308] (det er ikke det samme program som i COD)
+Nedenfor ses et afviklingsplot for fire instruktioner på en fem-trins pipeline med
+fuld forwarding svarende til beskrivelsen i [COD p. 317] (det er ikke det samme program som i COD)
 
 ~~~
                         0  1  2  3  4  5  6  7  8
