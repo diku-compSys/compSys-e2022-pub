@@ -1,6 +1,10 @@
 
 # Øvelser 14. december
 
+Bemærk at noten om afviklingsplot er opdateret pr 13. december
+for at kunne danne baggrund for de følgende opgaver.
+
+
 ## Opgave 1
 
 Denne opgave handler om forskellige out-of-order maskiners ydeevne ved udførelse
