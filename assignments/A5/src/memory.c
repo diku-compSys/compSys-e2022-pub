@@ -24,7 +24,7 @@ void memory_delete(struct memory *mem)
 
 int *get_page(struct memory *mem, int addr)
 {
-  int page_number = addr >> 16;
+  int page_number = (addr >> 16) & 0x0ffff;
   if (mem->pages[page_number] == NULL)
   {
     mem->pages[page_number] = calloc(65536, 1);
