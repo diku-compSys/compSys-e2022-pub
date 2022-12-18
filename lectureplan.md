@@ -37,7 +37,7 @@
 | 50   | 12 Dec | Arc   | Finn     | Avanceret Mikroarkitektur I                                                   | COD 4.11 + [note](https://github.com/diku-compSys/compSys-e2022-pub/blob/main/resources/Afviklingsplot/plot.md) |
 |      | 14 Dec | Arc   | Finn     | Avanceret Mikroarkitektur II                                                  | TBD + [note](https://github.com/diku-compSys/compSys-e2022-pub/blob/main/resources/Afviklingsplot/plot.md) |
 |      |        |       |          | Hand-in A5 -- Simulation af en maskine                                        |  |
-| 51   | 19 Dec | Arc   | Finn     | Shared memory multithreading og A6                                            | COD 6.? + TBD |
+| 51   | 19 Dec | Arc   | Finn     | Shared memory multithreading og A6                                            | COD 6.1, 6.5, 5.10, 5.14, 2.11 |
 |      | 21 Dec |       |          | Christmas lecture by Mads Ynddal and Pankaj Raghav fra Samsung's Global Open Source Team                                    |         |
 | 52   |        |       |          | Christmas vacation - No lectures                                              |         |
 | 53   |        |       |          | Christmas vacation - No lectures                                              |         |
