@@ -132,7 +132,7 @@ Hvad er IPC for 20 gennemløb af løkken.
 ### Svar 1.4
 
 Vi kan se at hver gennemløb koster 1 clock cykle (Fa, Qu og Ca forskydes alle 1 clock cykle)
-så 20 gennemløb koster 20 clock. Fejlforudsigelsen koster det samme som i tidligere svar (10 cycles).
+så 20 gennemløb koster 20 clock. Fejlforudsigelsen koster det samme som i tidligere svar (11 cycles).
 Samlet IPC = 160/30 = 16/3
 
 
