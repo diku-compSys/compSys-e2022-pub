@@ -95,17 +95,17 @@ som beskrevet i [Dynamisk Skedulering (Out-of-order execution)](https://github.c
 bge   x10, x12, end     Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  Ca  Cb
 lw    x14, 0(x11)       Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ag  ma  mb  mc  wb  Ca  Cb
 addi  x11, x11, 4           Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  Ca  Cb
-sw    x14, 0(x10)           Fa  Fb  Fc  De  Fu  Al  Rn  Qu  --  --  --  --  --  pk  rd  ag  ma  mb  mc  --  Ca  Cb                       # venter på `mc` for `lw` ovenfor
--                                                       >>  Qu  --  --  --  --  --  --  --  --  pk  rd  st
-addi  x10, x10, 4               Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  --  --  --  --  --  Ca  Cb
-jal   loop                      Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ex  --  --  --  --  --  --  --  --  Ca  Cb
-bge   x10, x12, end                 Fa  Fb  Fc  De  Fu  Al  Rn  Qu  --  --  pk  rd  ex  --  --  --  --  --  --  Ca  Cb
-lw    x14, 0(x11)                   Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  --  pk  rd  ag  ma  mb  mc  wb  --  --  --  Ca  Cb
-addi  x11, x11, 4                       Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  --  --  --  --  --  Ca  Cb
-sw    x14, 0(x10)                       Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  --  --  --  --  --  --  pk  rd  ag  ma  mb  mc  --  Ca  Cb
--                                                                       Qu  --  --  --  --  --  --  --  --  --  --  pk  rd  st
-addi  x10, x10, 4                           Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ex  wb  --  --  --  --  --  --  --  --  Ca  Cb
-jal   loop                                  Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ex  --  --  --  --  --  --  --  --  --  --  Ca  Cb
-bge   x10, x12, end                             Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  --  --  pk  rd  ex  --  --  --  --  --  --  --  Ca  Cb
+sw    x14, 0(x10)           Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ag  ma  mb  mc  --  Ca  Cb                   
+-                                                       >>  Qu  --  --  --  pk  rd  st                         # `rd` får data fra `wb` i `lw` ovenfor.
+addi  x10, x10, 4               Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  --  Ca  Cb
+jal   loop                      Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ex  --  --  --  Ca  Cb
+bge   x10, x12, end                 Fa  Fb  Fc  De  Fu  Al  Rn  Qu  --  --  pk  rd  ex  --  --  Ca  Cb
+lw    x14, 0(x11)                   Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  --  pk  rd  ag  ma  mb  mc  wb  Ca  Cb
+addi  x11, x11, 4                       Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  --  --  Ca  Cb
+sw    x14, 0(x10)                       Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ag  ma  mb  mc  --  --  Ca  Cb
+-                                                                       Qu  --  --  --  --  --  pk  rd  st
+addi  x10, x10, 4                           Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ex  wb  --  --  --  --  Ca  Cb
+jal   loop                                  Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ex  --  --  --  --  --  Ca  Cb
+bge   x10, x12, end                             Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  --  --  pk  rd  ex  --  --  --  Ca  Cb
 ```
 Bemærk hvordan at vores commit-trin udføres in-order. Hvordan vil det se ud hvis maskinen var 4-vejs superskalar out-of-order? Hvad med 8?
