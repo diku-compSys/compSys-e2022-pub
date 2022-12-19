@@ -40,7 +40,7 @@ Hvad er IPC hvis løkken udføres uendeligt mange gange og alle hop forudsiges k
 
 ### Svar 1.1
 
-Vi kan se at hver gennemløb koster 4 clock cykler (Fa, Qu og Ca forskydes alle 4 clock cykler)
+Vi kan se at hver gennemløb koster 4 clock cykler (Fa, Qu og Ca forskydes alle 4 clock cykler, hvis vi kigger på anden iteration af loopet)
 Da der er 8 instruktioner i hvert gennemløb får vi en IPC på 2.
 
 Hvis alle hop forudsiges korrekt vil det
@@ -79,16 +79,16 @@ Nedenfor ses to iterationer af den samme løkke-krop på en 4-vejs out-of-order 
     add  x12,x17,x12       Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb -- -- -- -- Ca Cb
     sw   x11,0(x12)        Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ag ma mb mc -- Ca Cb
     -                                           Qu -- -- -- -- -- -- pk rd st
-    bge  x9,x4,Loop        Fa Fb Fc De Fu Al Rn Qu pk rd ex -- -- -- -- -- -- -- Ca Cb
+    bge  x9,x4,Loop        Fa Fb Fc De Fu Al Rn >> Qu pk rd ex -- -- -- -- -- -- Ca Cb
     addi x4,x4,1              Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- -- -- Ca Cb
     slli x11,x4,5             Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb -- -- -- -- Ca Cb
     add  x11,x16,x11          Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ex wb -- -- -- Ca Cb
-    lw   x11,8(x11)           Fa Fb Fc De Fu Al Rn Qu -- -- -- pk rd ag ma mb mc wb Ca Cb
-    slli x12,x4,2                Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- -- -- Ca Cb
-    add  x12,x17,x12             Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb -- -- -- -- Ca Cb
-    sw   x11,0(x12)              Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ag ma mb mc -- Ca Cb
-    -                                                 Qu -- -- -- -- -- -- pk rd st
-    bge  x9,x4,Loop              Fa Fb Fc De Fu Al Rn Qu pk rd ex -- -- -- -- -- -- -- Ca Cb
+    lw   x11,8(x11)           Fa Fb Fc De Fu Al Rn >> Qu -- -- -- pk rd ag ma mb mc wb Ca Cb
+    slli x12,x4,2                Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- -- -- -- Ca Cb
+    add  x12,x17,x12             Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb -- -- -- -- -- Ca Cb
+    sw   x11,0(x12)              Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ag ma mb mc -- -- Ca Cb
+    -                                                    Qu -- -- -- -- -- -- pk rd st
+    bge  x9,x4,Loop              Fa Fb Fc De Fu Al Rn >> Qu pk rd ex -- -- -- -- -- -- -- Ca Cb
 
 ### Spg 1.3
 
