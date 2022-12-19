@@ -7,7 +7,7 @@ Først og fremmest skal vi forstå hvad koden gør, specielt linjen
 ```
 *a++ = *b++
 ```
-Her tildeles værdien af den integer, der peges på af `q`, til den integer, der peges på af `p`. Derefter øges pegerne `q` og `p` med én.
+Her tildeles værdien af den integer, der peges på af `q`, til den integer, der peges på af `p`. Derefter øges pegerne `q` og `p` med én, da `++` har højere [operatorpræcedens](https://www.cs.uic.edu/~i109/Notes/COperatorPrecedenceTable.pdf) end `*`.
 
 Dernæst kan vi skrive koden ved et simpelt loop:
 ~~~
@@ -45,7 +45,7 @@ Her bemærkes at resultatet af `addi` kan forwardes fra instruktionens `ex` trin
 
 
 ## 1.3
-Vi antager en 2-vejs superskalar in-order maskine med fuld forwarding. Dernæst antager vi at betingede hop ikke forudsiges ikke-taget, samt at det tager 3 cykler at tilgå cachen (som foregår i `Fe` og `Mm`-trinene. Hvorfor?). Vi har derfor følgende resource-indeling:
+Vi antager en 2-vejs superskalar in-order maskine med fuld forwarding. Dernæst antager vi at betingede hop ikke forudsiges ikke-taget, samt at det tager 3 cykler at tilgå cachen (som foregår i både fetch og memory-trinene. Hvorfor?). Vi har derfor følgende resource-indeling:
 ```
 load:  "Fa Fb Fc De Ag Ma Mb Mc Wb"
 store: "Fa Fb Fc De Ag Ma Mb Mc"
@@ -108,4 +108,4 @@ addi  x10, x10, 4                           Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  
 jal   loop                                  Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ex  --  --  --  --  --  Ca  Cb
 bge   x10, x12, end                             Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  --  --  pk  rd  ex  --  --  --  Ca  Cb
 ```
-Bemærk hvordan at vores commit-trin udføres in-order. Hvordan vil det se ud hvis maskinen var 4-vejs superskalar out-of-order? Hvad med 8?
+Bemærk hvordan at vores commit-trin udføres in-order, samt hvornår vi kan udføre de forskellige dele af `sw`. Hvordan vil det se ud hvis maskinen var 4-vejs superskalar out-of-order? Hvad med 8?
