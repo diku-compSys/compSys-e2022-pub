@@ -53,7 +53,7 @@ andre: "Fa Fb Fc De Ex Wb"
 
 ressourcer: F(a|b|c):2, De:2, Ex:2, Ag:1, M(a|b|c):1, Wb:2
 ```
-som beskrevet i [Superskalar mikroarkitektur](https://github.com/diku-compSys/compSys-e2022-pub/blob/main/resources/Afviklingsplot/superskalar.md).
+som beskrevet i [Superskalar mikroarkitektur](https://github.com/diku-compSys/compSys-e2022-pub/blob/main/resources/Afviklingsplot/superskalar.md). Afviklingsplottet ser derfor ud som følger:
 
 ```
                         0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16
@@ -81,31 +81,31 @@ branch: Fa Fb Fc De Fu Al Rn Qu pk rd ex Ca Cb
 
 load:  Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc wb Ca Cb
 store: Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc -- Ca Cb   // addresse
-       -                    Qu -- -- -- -- pk rd st Ca Cb   // data
+       -                    Qu -- -- -- -- pk rd st         // data
 
 inorder: Fa, Fb, Fc, De, Fu, Al, Rn, Qu, Ca, Cb
 outoforder: pk, rd, ex, wb
 
 Resourcer: Fa:2, Fb:2, Fc:2, De:2, Fu:2, Al:2, Rn:2 [Qu-Ca]:2, Ca:2, Cb:2
 ```
-som beskrevet i [Dynamisk Skedulering (Out-of-order execution)](https://github.com/diku-compSys/compSys-e2022-pub/blob/main/resources/Afviklingsplot/ooo.md).
+som beskrevet i [Dynamisk Skedulering (Out-of-order execution)](https://github.com/diku-compSys/compSys-e2022-pub/blob/main/resources/Afviklingsplot/ooo.md). Afviklingsplottet ser derfor sådan ud:
 
 ```
-                        0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19
+                        0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28
 bge   x10, x12, end     Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  Ca  Cb
 lw    x14, 0(x11)       Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ag  ma  mb  mc  wb  Ca  Cb
 addi  x11, x11, 4           Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  Ca  Cb
-sw    x14, 0(x10)           Fa  Fb  Fc  De  Fu  Al  Rn  Qu  --  --  --  --  --  pk  rd  ag  ma  mb  mc  Ca  Cb                    # venter på `mc` for `lw` ovenfor
--                                                       Qu  --  --  --  --  --  --  --  --  --  pk  rd  st
-addi  x10, x10, 4               Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  --  --  --  --  Ca  Cb
-jal   loop                      Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  --  --  --  --  --  --  --  --  Ca  Cb
-bge   x10, x12, end                 Fa  Fb  Fc  De  Fu  Al  Rn  Qu  --  --  pk  rd  ex  --  --  --  --  --  Ca  Cb
-lw    x14, 0(x11)                   Fa  Fb  Fc  De  Fu  Al  Rn  Qu  --  pk  rd  ag  ma  mb  mc  wb  --  --  --  Ca  Cb
+sw    x14, 0(x10)           Fa  Fb  Fc  De  Fu  Al  Rn  Qu  --  --  --  --  --  pk  rd  ag  ma  mb  mc  --  Ca  Cb                       # venter på `mc` for `lw` ovenfor
+-                                                       >>  Qu  --  --  --  --  --  --  --  --  pk  rd  st
+addi  x10, x10, 4               Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  --  --  --  --  --  Ca  Cb
+jal   loop                      Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ex  --  --  --  --  --  --  --  --  Ca  Cb
+bge   x10, x12, end                 Fa  Fb  Fc  De  Fu  Al  Rn  Qu  --  --  pk  rd  ex  --  --  --  --  --  --  Ca  Cb
+lw    x14, 0(x11)                   Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  --  pk  rd  ag  ma  mb  mc  wb  --  --  --  Ca  Cb
 addi  x11, x11, 4                       Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  --  --  --  --  --  Ca  Cb
-sw    x14, 0(x10)                       Fa  Fb  Fc  De  Fu  Al  Rn  Qu  --  --  --  --  --  --  pk  rd  ag  ma  mb  mc  Ca  Cb
--                                                                   Qu  --  --  --  --  --  --  --  --  --  --  pk  rd  st
-addi  x10, x10, 4                           Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  --  --  --  --  --  Ca  Cb
-jal   loop                                  Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  --  --  --  --  --  --  --  --  --  Ca  Cb
-bge   x10, x12, end                             Fa  Fb  Fc  De  Fu  Al  Rn  Qu  --  --  pk  rd  ex  --  --  --  --  --  --  Ca  Cb
+sw    x14, 0(x10)                       Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  --  --  --  --  --  --  pk  rd  ag  ma  mb  mc  --  Ca  Cb
+-                                                                       >>  Qu  --  --  --  --  --  --  --  --  --  pk  rd  st
+addi  x10, x10, 4                           Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  --  --  --  --  --  --  --  Ca  Cb
+jal   loop                                  Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ex  --  --  --  --  --  --  --  --  --  --  Ca  Cb
+bge   x10, x12, end                             Fa  Fb  Fc  De  Fu  Al  Rn  Qu  --  --  pk  rd  ex  --  --  --  --  --  --  --  --  Ca  Cb
 ```
-Hvordan vil det se ud hvis maskinen var 4-vejs superskalar out-of-order? Hvad med 8?
+Bemærk hvordan at vores commit-trin udføres in-order. Hvordan vil det se ud hvis maskinen var 4-vejs superskalar out-of-order? Hvad med 8?
