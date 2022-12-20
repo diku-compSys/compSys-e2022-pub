@@ -60,13 +60,13 @@ som beskrevet i [Superskalar mikroarkitektur](https://github.com/diku-compSys/co
 bge   x10, x12, end     Fa  Fb  Fc  De  Ex  Wb
 lw    x14, 0(x11)       Fa  Fb  Fc  De  Ag  Ma  Mb  Mc  Wb
 addi  x11, x11, 4           Fa  Fb  Fc  De  Ex  Wb
-sw    x14, 0(x10)           Fa  Fb  Fc  De  Ag  >>  >>  Ma  Mb  Mc
+sw    x14, 0(x10)           Fa  Fb  Fc  De  Ag  >>  Ma  Mb  Mc
 addi  x10, x10, 4               Fa  Fb  Fc  De  Ex  Wb
 jal   loop                      Fa  Fb  Fc  De  Ex  Wb
 bge   x10, x12, end                 Fa  Fb  Fc  De  >>  Ex  Wb                            # x10 bliver først produceret i Wb jf. Finns note.
 lw    x14, 0(x11)                   Fa  Fb  Fc  De  Ag  >>  Ma  Mb  Mc  Wb
 addi  x11, x11, 4                       Fa  Fb  Fc  De  Ex  Wb
-sw    x14, 0(x10)                       Fa  Fb  Fc  De  Ag  >>  >>  >>  Ma  Mb  Mc
+sw    x14, 0(x10)                       Fa  Fb  Fc  De  Ag  >>  >>  Ma  Mb  Mc
 addi  x10, x10, 4                           Fa  Fb  Fc  De  Ex  Wb
 jal   loop                                  Fa  Fb  Fc  De  Ex  Wb
 bge   x10, x12, end                             Fa  Fb  Fc  De  >>  Ex  Wb
@@ -96,14 +96,14 @@ bge   x10, x12, end     Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  Ca  Cb
 lw    x14, 0(x11)       Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ag  ma  mb  mc  wb  Ca  Cb
 addi  x11, x11, 4           Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  Ca  Cb
 sw    x14, 0(x10)           Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ag  ma  mb  mc  --  Ca  Cb                   
--                                                       >>  Qu  --  --  --  pk  rd  st                         # `rd` får data fra `wb` i `lw` ovenfor.
+-                                                       >>  Qu  --  --  pk  rd  st                         # `rd` får data fra `wb` i `lw` ovenfor.
 addi  x10, x10, 4               Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  --  Ca  Cb
 jal   loop                      Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ex  --  --  --  Ca  Cb
 bge   x10, x12, end                 Fa  Fb  Fc  De  Fu  Al  Rn  Qu  --  --  pk  rd  ex  --  --  Ca  Cb
 lw    x14, 0(x11)                   Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  --  pk  rd  ag  ma  mb  mc  wb  Ca  Cb
 addi  x11, x11, 4                       Fa  Fb  Fc  De  Fu  Al  Rn  Qu  pk  rd  ex  wb  --  --  --  --  Ca  Cb
 sw    x14, 0(x10)                       Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ag  ma  mb  mc  --  --  Ca  Cb
--                                                                       Qu  --  --  --  --  --  pk  rd  st
+-                                                                       Qu  --  --  --  --  pk  rd  st
 addi  x10, x10, 4                           Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ex  wb  --  --  --  --  Ca  Cb
 jal   loop                                  Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  pk  rd  ex  --  --  --  --  --  Ca  Cb
 bge   x10, x12, end                             Fa  Fb  Fc  De  Fu  Al  Rn  >>  Qu  --  --  pk  rd  ex  --  --  --  Ca  Cb
