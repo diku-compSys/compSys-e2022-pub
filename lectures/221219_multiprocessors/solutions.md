@@ -45,7 +45,7 @@ Her bemærkes at resultatet af `addi` kan forwardes fra instruktionens `ex` trin
 
 
 ## 1.3
-Vi antager en 2-vejs superskalar in-order maskine med fuld forwarding. Dernæst antager vi at betingede hop ikke forudsiges ikke-taget, samt at det tager 3 cykler at tilgå cachen (som foregår i både fetch og memory-trinene. Hvorfor?). Vi har derfor følgende resource-indeling:
+Vi antager en 2-vejs superskalar in-order maskine med fuld forwarding. Dernæst antager vi at betingede hop forudsiges ikke-taget, samt at det tager 3 cykler at tilgå cachen (som foregår i både fetch og memory-trinene. Hvorfor?). Vi har derfor følgende resource-indeling:
 ```
 load:  "Fa Fb Fc De Ag Ma Mb Mc Wb"
 store: "Fa Fb Fc De Ag Ma Mb Mc"
