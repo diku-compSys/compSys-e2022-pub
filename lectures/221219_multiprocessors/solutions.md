@@ -7,7 +7,7 @@ Først og fremmest skal vi forstå hvad koden gør, specielt linjen
 ```
 *a++ = *b++
 ```
-Her tildeles værdien af den integer, der peges på af `q`, til den integer, der peges på af `p`. Derefter øges pegerne `q` og `p` med én, da `++` har højere [operatorpræcedens](https://www.cs.uic.edu/~i109/Notes/COperatorPrecedenceTable.pdf) end `*`.
+Her tildeles værdien af den integer, der peges på af `a`, til den integer, der peges på af `b`. Derefter øges pegerne `a` og `b` med én, da `++` har højere [operatorpræcedens](https://www.cs.uic.edu/~i109/Notes/COperatorPrecedenceTable.pdf) end `*`.
 
 Dernæst, hvis vi antager at `x10` indeholder `a`, at `x11` indeholder `b` og at `x12` indeholder `limit`, kan vi skrive koden ved et simpelt loop:
 ~~~
