@@ -1,6 +1,6 @@
 
 # Løsninger til mandagens øvelsesopgaver.
-Du bør læse [Finns noter](https://github.com/diku-compSys/compSys-e2022-pub/blob/main/resources/Afviklingsplot/plot.md), samt forsøge at løse opgaverne, før du orienterer dig i løsningen.
+Du bør læse [Finns noter](https://github.com/diku-compSys/compSys-e2022-pub/blob/main/resources/Afviklingsplot/plot.md), samt forsøge at løse opgaverne selv, før du orienterer dig i løsningen.
 
 ## 1.1
 Først og fremmest skal vi forstå hvad koden gør, specielt linjen
@@ -9,7 +9,7 @@ Først og fremmest skal vi forstå hvad koden gør, specielt linjen
 ```
 Her tildeles værdien af den integer, der peges på af `q`, til den integer, der peges på af `p`. Derefter øges pegerne `q` og `p` med én, da `++` har højere [operatorpræcedens](https://www.cs.uic.edu/~i109/Notes/COperatorPrecedenceTable.pdf) end `*`.
 
-Dernæst kan vi skrive koden ved et simpelt loop:
+Dernæst, hvis vi antager at `x10` indeholder `a`, at `x11` indeholder `b` og at `x12` indeholder `limit`, kan vi skrive koden ved et simpelt loop:
 ~~~
 loop:
     bge   x10, x12, end
