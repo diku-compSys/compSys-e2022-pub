@@ -1,7 +1,7 @@
 
 # Opgave A6 - Cache Simulator, CompSys 2022
 
-af Finn Schiermer Andersen, foreløbig udgave
+af Finn Schiermer Andersen, version 1.0
 
 Denne opgave stilles mandag den 19. december 2022 og skal afleveres
 kl 16 søndag den 8. januar 2023
@@ -59,6 +59,7 @@ w = write, skrivning til cachen
 og *addr* er en hexadecimal addresse der er delelig med 4. 
 Cachen simulerer kun tilgang til et helt word.
 
+*data* ignoreres og kan udelades for læsninger (op='r')
 
 ## Output
 
@@ -75,6 +76,12 @@ op addr data DISCARD lru-order
 ~~~
 
 svarende til initialisering af lageret samt de fire mulige måder en cache kan reagere på et opslag.
+
+ * INIT: Det angivne ord i lageret initialiseres
+ * HIT: Det angivne ord blev fundet i cachen
+ * FILL: Det angivne ord blev i læst fra lageret til en tom blok i cachen
+ * EVICT: En modificeret blok blev udvalgt til at holde nye data og de gamle blev skrevet til lageret
+ * DISCARD: En ikke-tom, ikke-modificeret blok blev udvalgt til at holde nye data.
 
 *op* og *addr* er mage til den tilsvarende linie i input.
 *data* skal for skrivninger blot tages fra den tilsvarende linie i input,
