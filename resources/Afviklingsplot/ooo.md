@@ -281,7 +281,7 @@ antallet af instruktioner mellem Qu og Ca. For eksempel kunne en fire-vejs out-o
 maskine med 64 instruktioner i dataflow-sektionen være beskrevet således:
 
 ~~~
-Resources: Fa:4, Fb:4, Fc:4, De:4, Fu:4, Al:4, Rn:4 [Qu-Ca]:64, Ca:4, Cb:4
+Resources: Fa:4, Fb:4, Fc:4, De:4, Fu:4, Al:4, Rn:4 Qu:4 [Qu-Ca]:64, Ca:4 Cb:4
 ~~~
 
 Instruktioner som venter i dataflow-sektionen på at blive udvalgt til udførelse eller
@@ -355,8 +355,11 @@ De to operationer vil ofte blive skeduleret separat. Det kan vi illustrere såda
 
 ~~~text
 store: Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc -- Ca Cb   // addresse
-       -                    Qu -- -- -- -- pk rd st Ca Cb   // data
+       -                    Q* -- -- -- -- pk rd st C*      // data
 ~~~
+De særlige trin "Q*" og "C*" bruges kun for data-delen af store instruktionerne.
+I typiske implementationer vil "Q*" altid ske samtidigt med "Qu" for den operation
+der beregner af adressen, ligesom "C*" vil ske samtidigt med "Ca"
 
 For både load og store instruktioner startes cache opslag så snart deres adresse er
 beregnet. Men store instruktioner skriver ikke deres data til cachen i første omgang.
