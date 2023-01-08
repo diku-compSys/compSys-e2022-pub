@@ -44,8 +44,9 @@
 | 1    | 04 Jan | CN    | Michael  | Network layer, data plane                                                     | KR 4.1 - 4.2.4, 4.3 (Optional read - [Design Philosophy of DARPA Internet Protocols](http://www.cs.princeton.edu/courses/archive/spr14/cos461/papers/clark88.pdf)) |
 |      |        |       |          | Hand-in A6 -- Performance simulering                                          |         |
 | 2    | 09 Jan | CN    | Michael  | Network layer, control plane                                                  | KR 5.1 - 5.3, KR 6.1 - 6.4.3, KR 8.5 - 8.6 |
-|      | 11 Jan | Recap | TAs      |                                                |  |
-|      | 13 Jan | Recap | TAs      |                                               |  |
+|      | 11 Jan | Recap | TAs      | OS, Julian & Iben, 10:15 to 12:00, HCØ Aud 01                                               |  |
+|      | 11 Jan | Recap | TAs      | Computer Networks, Utne & Kjartan, 13:15 to 15:00, AKB Aud 01                                               |  |
+|      | 13 Jan | Recap | TAs      | Machine Architecture, Johan, Asbjørn & Christian, 13:15 to 16:00, AKB Aud 01                                               |  |
 | 4    | 23 Jan |       | Everyone | Exam question session, recap and evaluation                                   |         |
 |      | 25 Jan |       |          | CompSys Exam                                                                  |         |
 
