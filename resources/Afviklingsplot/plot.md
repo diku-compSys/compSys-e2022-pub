@@ -1,6 +1,6 @@
 # Afviklingsplot og Mikroarkitektur
 
-Opdateret 13. december
+Opdateret 7. januar 2023 med tilføjelse af "Q*" og "C*" for sw/sh/sb instruktioner.
 
 Afviklingsplot er en kompakt måde at anskueliggøre en computers opførsel under udførelse
 af et program. Det kan bruges til at gøre diskussioner af ydeevne konkrete. 
@@ -22,3 +22,4 @@ Oversigt
  * [Superskalare maskiner](superskalar.md)
  * [Moderne CMOS - Realisme](realisme.md)
  * [Out-of-order execution](ooo.md)
+ * [Øvelser](exercises.md)
