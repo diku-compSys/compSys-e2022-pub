@@ -2,10 +2,11 @@
 
 Antagelser:
 
+```
 alle: "Fe De Ex Mm Wb"
 Fe: 1, De: 1, Ex: 1, Mm: 1, Wb: 1
-
-Perfekt hopforudsigelse. Forudsiges i De.
+```
+Perfekt hopforudsigelse. Forudsiges i De. <br>
 Fuld forwarding.
 
 ```

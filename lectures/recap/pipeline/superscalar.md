@@ -2,15 +2,17 @@
 
 Antagelser:
 
+```
 load:  "Fe De Ag Mm Wb"
 store: "Fe De Ag Mm"
 andre: "Fe De Ex Wb"
 
 Fe:2, De:2, Ex:2, Ag:1, Mm:1, Wb:2
+```
 
 Husk: kun en instruktion _for hvert register_ fra ex og frem.
 
-Perfekt hopforudsigelse, Forudsiges i `De`.
+Perfekt hopforudsigelse, Forudsiges i `De`. <br>
 Fuld forwarding.
 
 ```

@@ -2,6 +2,7 @@
 
 Antagelser:
 
+```
 ALU-op: Fa Fb Fc De Fu Al Rn Qu pk rd ex wb Ca Cb
 branch: Fa Fb Fc De Fu Al Rn Qu pk rd ex Ca Cb
 
@@ -13,7 +14,7 @@ inorder: Fa, Fb, Fc, De, Fu, Al, Rn, Qu, Ca, Cb
 outoforder: pk, rd, ex, wb
 
 Resourcer: Fa:2, Fb:2, Fc:2, De:2, Fu:2, Al:2, Rn:2 [Qu-Ca]:2, Ca:2, Cb:2
-
+```
 Branch prediction causes only single cycle delay!
 
 ```
