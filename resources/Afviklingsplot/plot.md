@@ -1,5 +1,9 @@
 # Afviklingsplot og Mikroarkitektur
 
+Opdateret 15. januar 2023 med rettelse af indrykning i svar til øvelse 2.
+
+Opdateret 15. januar 2023 med rettelse af dependencies for superskalar i afsnittet om afkoblet prefetcher.
+
 Opdateret 7. januar 2023 med tilføjelse af "Q*" og "C*" for sw/sh/sb instruktioner.
 
 Afviklingsplot er en kompakt måde at anskueliggøre en computers opførsel under udførelse
