@@ -167,18 +167,18 @@ De følgende spørgsmål handler om hvorden nedenstående instruktionssekvens af
 på forskellige mikroarkitekturer.
 
 ~~~
-Loop:	addi x4,x4,4
-		addi x6,x6,4
-		subi x7,x7,1
-		lw   x8,0(x4)
-		sw   x8,0(x5)
-		bne  x7,x9,Loop
-Loop:	addi x4,x4,4
-		addi x6,x6,4
-		subi x7,x7,1
-		lw   x8,0(x4)
-		sw   x8,0(x5)
-		bne  x7,x9,Loop
+Loop:   addi x4,x4,4
+        addi x6,x6,4
+        subi x7,x7,1
+        lw   x8,0(x4)
+        sw   x8,0(x5)
+        bne  x7,x9,Loop
+Loop:   addi x4,x4,4
+        addi x6,x6,4
+        subi x7,x7,1
+        lw   x8,0(x4)
+        sw   x8,0(x5)
+        bne  x7,x9,Loop
 ~~~
 
 Angiv for hvert spørgsmål eventulle antagelser du gør for at besvare spørgsmålet
@@ -196,18 +196,18 @@ Vi antager
  * At load data kan forwardes fra starten af Wb til store i Me
 
 ~~~
-Loop:	addi x4,x4,4		Fe De Ex Mm Wb
-		addi x6,x6,4		   Fe De Ex Mm Wb
-		subi x7,x7,1		      Fe De Ex Mm Wb
-		lw   x8,0(x4)                Fe De Ex Mm Wb
-		sw   x8,0(x5)                   Fe De Ex Mm Wb
-		bne  x7,x9,Loop                    Fe De Ex Mm Wb
-Loop:	addi x4,x4,4                             Fe De Ex Mm Wb
-		addi x6,x6,4                                Fe De Ex Mm Wb
-		subi x7,x7,1                                   Fe De Ex Mm Wb
-		lw   x8,0(x4)                                     Fe De Ex Mm Wb
-		sw   x8,0(x5)                                        Fe De Ex Mm Wb
-		bne  x7,x9,Loop                                         Fe De Ex Mm Wb
+Loop:   addi x4,x4,4            Fe De Ex Mm Wb
+        addi x6,x6,4               Fe De Ex Mm Wb
+        subi x7,x7,1                  Fe De Ex Mm Wb
+        lw   x8,0(x4)                    Fe De Ex Mm Wb
+        sw   x8,0(x5)                       Fe De Ex Mm Wb
+        bne  x7,x9,Loop                        Fe De Ex Mm Wb
+Loop:   addi x4,x4,4                                 Fe De Ex Mm Wb
+        addi x6,x6,4                                    Fe De Ex Mm Wb
+        subi x7,x7,1                                       Fe De Ex Mm Wb
+        lw   x8,0(x4)                                         Fe De Ex Mm Wb
+        sw   x8,0(x5)                                            Fe De Ex Mm Wb
+        bne  x7,x9,Loop                                             Fe De Ex Mm Wb
 ~~~
 
 
@@ -223,18 +223,18 @@ Vi antager
  * At bagudgående hop forudsiges taget i De.
 
 ~~~
-Loop:	addi x4,x4,4		Fe De Ex Wb
-		addi x6,x6,4		Fe De Ex Wb
-		subi x7,x7,1		   Fe De Ex Wb
-		lw   x8,0(x4)		   Fe De Ag Mm Wb
-		sw   x8,0(x5)			  Fe De Ag Mm
-		bne  x7,x9,Loop			  Fe De Ex Wb
-Loop:	addi x4,x4,4			        Fe De Ex Wb
-		addi x6,x6,4					Fe De Ex Wb
-		subi x7,x7,1					   Fe De Ex Wb
-		lw   x8,0(x4)					   Fe De Ag Mm Wb
-		sw   x8,0(x5)						  Fe De Ag Mm
-		bne  x7,x9,Loop						  Fe De Ex Wb
+Loop:   addi x4,x4,4            Fe De Ex Wb
+        addi x6,x6,4            Fe De Ex Wb
+        subi x7,x7,1               Fe De Ex Wb
+        lw   x8,0(x4)              Fe De Ag Mm Wb
+        sw   x8,0(x5)                 Fe De Ag Mm
+        bne  x7,x9,Loop               Fe De Ex Wb
+Loop:   addi x4,x4,4                        Fe De Ex Wb
+        addi x6,x6,4                        Fe De Ex Wb
+        subi x7,x7,1                           Fe De Ex Wb
+        lw   x8,0(x4)                          Fe De Ag Mm Wb
+        sw   x8,0(x5)                             Fe De Ag Mm
+        bne  x7,x9,Loop                           Fe De Ex Wb
 ~~~
 
 
@@ -252,20 +252,20 @@ Vi antager:
  * Max to cache tilgange pr clock.
 
 ~~~
-Loop:	addi x4,x4,4		Fa Fb Fc De Fu Al Rn Qu pk rd ex wb Ca Cb
-		addi x6,x6,4		Fa Fb Fc De Fu Al Rn Qu pk rd ex wb Ca Cb
-		subi x7,x7,1		Fa Fb Fc De Fu Al Rn Qu pk rd ex wb Ca Cb
-		lw   x8,0(x4)		Fa Fb Fc De Fu Al Rn Qu -- pk rd ag ma mb mc wb Ca Cb
-		sw   x8,0(x5)		   Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc -- Ca Cb
-		-											Q* -- -- -- -- pk rd st C*
-		bne  x7,x9,Loop		   Fa Fb Fc De Fu Al Rn Qu pk rd ex -- -- -- -- Ca Cb
-Loop:	addi x4,x4,4			  Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- Ca Cb
-		addi x6,x6,4			  Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- Ca Cb
-		subi x7,x7,1			  Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- Ca Cb
-		lw   x8,0(x4)			  Fa Fb Fc De Fu Al Rn Qu -- pk rd ag ma mb mc wb Ca Cb
-		sw   x8,0(x5)				 Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc -- Ca Cb
-		-												  Q* -- -- -- -- pk rd st C*
-		bne  x7,x9,Loop				 Fa Fb Fc De Fu Al Rn Qu pk rd ex -- -- -- -- Ca Cb
+Loop:   addi x4,x4,4            Fa Fb Fc De Fu Al Rn Qu pk rd ex wb Ca Cb
+        addi x6,x6,4            Fa Fb Fc De Fu Al Rn Qu pk rd ex wb Ca Cb
+        subi x7,x7,1            Fa Fb Fc De Fu Al Rn Qu pk rd ex wb Ca Cb
+        lw   x8,0(x4)           Fa Fb Fc De Fu Al Rn Qu -- pk rd ag ma mb mc wb Ca Cb
+        sw   x8,0(x5)              Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc -- Ca Cb
+        -                                               Q* -- -- -- -- pk rd st C*
+        bne  x7,x9,Loop            Fa Fb Fc De Fu Al Rn Qu pk rd ex -- -- -- -- Ca Cb
+Loop:   addi x4,x4,4                  Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- Ca Cb
+        addi x6,x6,4                  Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- Ca Cb
+        subi x7,x7,1                  Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- Ca Cb
+        lw   x8,0(x4)                 Fa Fb Fc De Fu Al Rn Qu -- pk rd ag ma mb mc wb Ca Cb
+        sw   x8,0(x5)                    Fa Fb Fc De Fu Al Rn Qu pk rd ag ma mb mc -- Ca Cb
+        -                                                     Q* -- -- -- -- pk rd st C*
+        bne  x7,x9,Loop                  Fa Fb Fc De Fu Al Rn Qu pk rd ex -- -- -- -- Ca Cb
 ~~~
 
 

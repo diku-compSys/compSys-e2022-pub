@@ -122,12 +122,12 @@ Her er et eksempel på specifikationen af sådan en maskine:
 
 ~~~Text
 load:          "Fe Pq De Ex Mm Wb"  depend(Ex,rs1), produce(Mm,rd)
-store:         "Fe Pq De Ex Mm"     depend(Ex,rs1), depend(Ex,rs2)
+store:         "Fe Pq De Ex Mm"     depend(Ex,rs1), depend(Mm,rs2)
 ubetinget hop: "Fe Pq"      -
 betinget hop:  "Fe Pq De Ex"        depend(Ex,rs1), depend(Ex,rs2)
 kald:          "Fe Pq De Ex"        produce(Ex,rd)
 retur:         "Fe Pq De Ex"        depend(Ex,rs1)
-andre:         "Fe Pq De Ex Wb"     depend(Ex,rs1), depend(Mm,rs2), produce(Ex,rd)
+andre:         "Fe Pq De Ex Wb"     depend(Ex,rs1), depend(Ex,rs2), produce(Ex,rd)
 
 ressourcer: Fe:4, Pq: 4, De:4, Ex:2, Ag:1, Mm:1, Wb:2
 
